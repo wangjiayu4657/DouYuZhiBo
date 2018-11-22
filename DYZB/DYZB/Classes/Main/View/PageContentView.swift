@@ -14,10 +14,10 @@ class PageContentView: UIView {
 
     // MARK: - 定义属性
     private let childVCs : [UIViewController]
-    private let parentVC : UIViewController
+    private weak var parentVC : UIViewController?
     
     // MARK: - 懒加载
-    private lazy var collectionView:UICollectionView = {
+    private lazy var collectionView:UICollectionView = { [weak self] in
         //创建布局样式 layout
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = bounds.size
@@ -27,10 +27,10 @@ class PageContentView: UIView {
         
         //创建 collectionView
         let collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.scrollsToTop = false;
         collectionView.bounces = false
+        collectionView.scrollsToTop = false;
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PageContentCellID)
         collectionView.dataSource = self
         return collectionView
@@ -38,7 +38,7 @@ class PageContentView: UIView {
     
     
     // MARK: - 自定义构造函数
-    init(frame: CGRect,childVCs:[UIViewController],parentVC:UIViewController) {
+    init(frame: CGRect,childVCs:[UIViewController],parentVC:UIViewController?) {
         self.childVCs = childVCs
         self.parentVC = parentVC
         super.init(frame: frame)
@@ -58,9 +58,10 @@ extension PageContentView {
     private func setupUI() {
         //添加所有子控制器
         for vc in childVCs {
-            parentVC.addChild(vc)
+            parentVC?.addChild(vc)
         }
         
+        //添加 collectionView
         addSubview(collectionView)
     }
 }

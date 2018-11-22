@@ -11,6 +11,8 @@ import UIKit
 class PageTitleView: UIView {
     // MARK: - 定义属性
     private var titles:[String]
+    private var currentIndex:Int = 0
+    private var sliderView:UIView?
     
     // MARK: - 懒加载
     private lazy var titleLbs:[UILabel] = [UILabel]()
@@ -62,6 +64,7 @@ extension PageTitleView {
             let titleLb = UILabel()
             
             //设置 label 属性
+            titleLb.tag = index
             titleLb.text = title
             titleLb.textColor = UIColor.darkGray
             titleLb.textAlignment = .center
@@ -73,6 +76,11 @@ extension PageTitleView {
             //添加 titleLb
             titleScrollView.addSubview(titleLb)
             titleLbs.append(titleLb)
+            
+            //titleLb添加点击手势
+            let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(titleLbClick))
+            titleLb.isUserInteractionEnabled = true
+            titleLb.addGestureRecognizer(tap)
         }
     }
     
@@ -80,9 +88,9 @@ extension PageTitleView {
     private func createSliderView() {
         guard let titleLb = titleLbs.first else { return }
         titleLb.textColor = UIColor.orange
-        let sliderView = UIView(frame: CGRect(x: titleLb.frame.origin.x, y: kTitleViewH - 2, width: titleLb.frame.width, height: 2))
-        sliderView.backgroundColor = UIColor.orange
-        titleScrollView.addSubview(sliderView)
+        sliderView = UIView(frame: CGRect(x: titleLb.frame.origin.x, y: kTitleViewH - 2, width: titleLb.frame.width, height: 2))
+        sliderView?.backgroundColor = UIColor.orange
+        titleScrollView.addSubview(sliderView!)
     }
     
     //添加 titleView 底部的细线
@@ -92,4 +100,25 @@ extension PageTitleView {
         addSubview(bottomLine)
     }
     
+}
+
+// MARK: - 事件监听
+extension PageTitleView {
+    @objc private func titleLbClick(tap: UITapGestureRecognizer) {
+        //获取当前点击的titleLb
+        guard let currentLb = tap.view as? UILabel else { return }
+        currentLb.textColor = UIColor.orange
+        
+        //获取起始时的 titleLb
+        let sourceLb = titleLbs[currentIndex]
+        sourceLb.textColor = UIColor.darkGray
+        
+        //更新索引
+        currentIndex = currentLb.tag
+        
+        //移动滑块到对应的标签下
+        UIView.animate(withDuration: 0.5) {
+            self.sliderView?.center.x = currentLb.center.x
+        }
+    }
 }
