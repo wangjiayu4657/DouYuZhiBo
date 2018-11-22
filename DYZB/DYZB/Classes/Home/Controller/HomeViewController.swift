@@ -29,12 +29,12 @@ class HomeViewController: UIViewController {
         
        let contentView = PageContentView(frame: CGRect(x: 0, y: contentViewY, width: kScreenW, height: contentViewH), childVCs: childVCs, parentVC: self)
         contentView.backgroundColor = UIColor.red
+        contentView.delegate = self
         return contentView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         //设置UI界面
         setupUI()
@@ -69,8 +69,15 @@ extension HomeViewController {
 
 // MARK: - 遵守PageTitleViewDelegate协议
 extension HomeViewController : PageTitleViewDelegate {
-    func selectedTitle(titleView: PageTitleView, selectedIndex : Int) {
+    func titleView(_ titleView: PageTitleView, selectedIndex : Int) {
         let offsetX = CGFloat(selectedIndex) * kScreenW
         pageContentView.slideViewToSelectedView(offsetX: offsetX)
+    }
+}
+
+// MARK: - 遵守PageContentViewDelegate协议
+extension HomeViewController : PageContentViewDelegate {
+    func contentView(_ contentView: PageContentView, radio: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        pageTitleView.selectedTitleLabeWith(radio: radio, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }

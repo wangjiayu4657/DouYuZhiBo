@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol PageContentViewDelegate : class {
+    func contentView(_ contentView:PageContentView,radio:CGFloat,sourceIndex:Int,targetIndex:Int)
+}
 private let PageContentCellID = "PageContentCellID"
 
 class PageContentView: UIView {
@@ -15,6 +18,9 @@ class PageContentView: UIView {
     // MARK: - 定义属性
     private let childVCs : [UIViewController]
     private weak var parentVC : UIViewController?
+    private var startOffsetX : CGFloat = 0
+    private var isForbidScroll:Bool = false
+    weak var delegate:PageContentViewDelegate?
     
     // MARK: - 懒加载
     private lazy var collectionView:UICollectionView = { [weak self] in
@@ -33,6 +39,7 @@ class PageContentView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PageContentCellID)
         collectionView.dataSource = self
+        collectionView.delegate = self
         return collectionView
     }()
     
@@ -88,10 +95,56 @@ extension PageContentView : UICollectionViewDataSource {
     }
 }
 
+// MARK: - 遵守 UIcollectionViewDelegate 协议
+extension PageContentView : UICollectionViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isForbidScroll = false
+        //获取起始偏移量
+        startOffsetX = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if isForbidScroll { return }
+        //获取当前偏移量
+        let currentOffsetX = scrollView.contentOffset.x
+        let offsetx:CGFloat = currentOffsetX / kScreenW
+        var offsetXRadio:CGFloat = 0
+        var sourceIndex:Int = 0
+        var targetIndex:Int = 0
+        
+        //判断滑动的方向
+        if currentOffsetX > startOffsetX { //左滑
+            offsetXRadio = offsetx - floor(offsetx)
+            sourceIndex = Int(offsetx)
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childVCs.count { targetIndex = childVCs.count - 1}
+            
+            //完全滑过去
+            if currentOffsetX - startOffsetX == kScreenW {
+                offsetXRadio = 1.0
+                targetIndex = sourceIndex
+            }
+        }else { //右滑
+            offsetXRadio = 1 - (offsetx - floor(offsetx))
+            targetIndex = Int(offsetx)
+            sourceIndex = targetIndex + 1
+            
+            if sourceIndex >= childVCs.count {
+                sourceIndex = childVCs.count - 1
+            }
+        }
+        
+        print("offsetXRadio = \(offsetXRadio) sourceIndex = \(sourceIndex) targetIndex = \(targetIndex)")
+        delegate?.contentView(self, radio: offsetXRadio, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
+}
+
 
 // MARK: - 对外暴露的方法
 extension PageContentView {
     func slideViewToSelectedView(offsetX:CGFloat) {
+        isForbidScroll = true
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
     }
 }

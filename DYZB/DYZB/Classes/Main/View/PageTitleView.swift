@@ -9,8 +9,11 @@
 import UIKit
 
 protocol PageTitleViewDelegate : class {
-    func selectedTitle(titleView:PageTitleView, selectedIndex:Int)
+    func titleView(_ titleView:PageTitleView, selectedIndex:Int)
 }
+
+private let kNormalColor:(CGFloat,CGFloat,CGFloat) = (85,85,85)
+private let kselectColor:(CGFloat,CGFloat,CGFloat) = (255,185,0)
 
 class PageTitleView: UIView {
     // MARK: - 定义属性
@@ -77,7 +80,6 @@ extension PageTitleView {
             
             //设置 labelt 的 frame
             titleLb.frame = CGRect(x: titleLbW * CGFloat(index), y: titleLbY, width: titleLbW, height: titleLbH)
-            print(titleLb.frame)
             //添加 titleLb
             titleScrollView.addSubview(titleLb)
             titleLbs.append(titleLb)
@@ -126,6 +128,30 @@ extension PageTitleView {
             self.sliderView?.center.x = currentLb.center.x
         }
         
-        delegate?.selectedTitle(titleView: self, selectedIndex: currentIndex)
+        delegate?.titleView(self, selectedIndex: currentIndex)
+    }
+}
+
+// MARK: - 对外暴露的接口
+extension PageTitleView {
+    func selectedTitleLabeWith(radio:CGFloat,sourceIndex:Int,targetIndex:Int) {
+        //获取目标/原标签
+        let sourceLb = titleLbs[sourceIndex]
+        let targetLb = titleLbs[targetIndex]
+        
+        //滑块滑动的距离
+        let deltX = targetLb.frame.origin.x - sourceLb.frame.origin.x
+        let moveX = deltX * radio
+        sliderView?.frame.origin.x = sourceLb.frame.origin.x + moveX
+    
+        //颜色差值
+        let kdeltColor = (kselectColor.0 - kNormalColor.0,kselectColor.1 - kNormalColor.1,kselectColor.2 - kNormalColor.2)
+    
+        //设置渐变色
+        sourceLb.textColor = UIColor(r: kselectColor.0 - kdeltColor.0 * radio, g: kselectColor.1 - kdeltColor.1 * radio, b: kselectColor.2 - kdeltColor.2 * radio)
+        targetLb.textColor = UIColor(r: kNormalColor.0 + kdeltColor.0 * radio, g: kNormalColor.1 + kdeltColor.1 * radio, b: kNormalColor.2 + kdeltColor.2 * radio)
+        
+        //重新赋值currentIndex
+        currentIndex = targetIndex
     }
 }
