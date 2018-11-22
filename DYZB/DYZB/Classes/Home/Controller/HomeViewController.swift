@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     private lazy var pageTitleView:PageTitleView = {
         let titles = ["推荐","游戏","娱乐","趣玩"]
         let titleView = PageTitleView(frame: CGRect(x: 0, y: kNavgationBarH, width: kScreenW, height: 40), titles: titles)
+        titleView.delegate = self
         return titleView
     }()
     private lazy var pageContentView:PageContentView = { [weak self] in 
@@ -63,5 +64,13 @@ extension HomeViewController {
         let searchItem = UIBarButtonItem(imageName: "search", lightedName: "search_clicked", size: size)
         let qrcodeItem = UIBarButtonItem(imageName: "scan", lightedName: "scan_click", size: size)
         navigationItem.rightBarButtonItems = [historyItem,searchItem,qrcodeItem]
+    }
+}
+
+// MARK: - 遵守PageTitleViewDelegate协议
+extension HomeViewController : PageTitleViewDelegate {
+    func selectedTitle(titleView: PageTitleView, selectedIndex : Int) {
+        let offsetX = CGFloat(selectedIndex) * kScreenW
+        pageContentView.slideViewToSelectedView(offsetX: offsetX)
     }
 }

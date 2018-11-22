@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol PageTitleViewDelegate : class {
+    func selectedTitle(titleView:PageTitleView, selectedIndex:Int)
+}
+
 class PageTitleView: UIView {
     // MARK: - 定义属性
     private var titles:[String]
     private var currentIndex:Int = 0
     private var sliderView:UIView?
+    weak var delegate:PageTitleViewDelegate?
     
     // MARK: - 懒加载
     private lazy var titleLbs:[UILabel] = [UILabel]()
@@ -120,5 +125,7 @@ extension PageTitleView {
         UIView.animate(withDuration: 0.5) {
             self.sliderView?.center.x = currentLb.center.x
         }
+        
+        delegate?.selectedTitle(titleView: self, selectedIndex: currentIndex)
     }
 }

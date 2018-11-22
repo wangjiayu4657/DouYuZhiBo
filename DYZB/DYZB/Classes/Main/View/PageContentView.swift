@@ -87,3 +87,11 @@ extension PageContentView : UICollectionViewDataSource {
          return cell
     }
 }
+
+
+// MARK: - 对外暴露的方法
+extension PageContentView {
+    func slideViewToSelectedView(offsetX:CGFloat) {
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+    }
+}
