@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
 
     // MARK: - 懒加载
@@ -21,7 +22,8 @@ class HomeViewController: UIViewController {
         let contentViewY = kNavgationBarH + kTitleViewH
         let contentViewH = kScreenH - contentViewY
         var childVCs : [UIViewController] = [UIViewController]()
-        for _ in 0..<4 {
+        childVCs.append(RecomendViewController())
+        for _ in 0..<3 {
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor.randomColor()
             childVCs.append(vc)
@@ -32,7 +34,6 @@ class HomeViewController: UIViewController {
         contentView.delegate = self
         return contentView
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

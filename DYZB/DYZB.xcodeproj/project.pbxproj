@@ -15,6 +15,7 @@
 		75568356219D529D0041E7FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75568354219D529D0041E7FD /* LaunchScreen.storyboard */; };
 		75568361219D529D0041E7FD /* DYZBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75568360219D529D0041E7FD /* DYZBTests.swift */; };
 		7556836C219D529D0041E7FD /* DYZBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556836B219D529D0041E7FD /* DYZBUITests.swift */; };
+		7559DBB421A7A8E0000894E8 /* RecomendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7559DBB321A7A8E0000894E8 /* RecomendViewController.swift */; };
 		75C08AE821A52DFD00AD45B5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AE721A52DFD00AD45B5 /* Home.storyboard */; };
 		75C08AEF21A52EF500AD45B5 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AEE21A52EF500AD45B5 /* Live.storyboard */; };
 		75C08AF421A52EFE00AD45B5 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AF321A52EFE00AD45B5 /* Follow.storyboard */; };
@@ -57,6 +58,7 @@
 		75568367219D529D0041E7FD /* DYZBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DYZBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556836B219D529D0041E7FD /* DYZBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYZBUITests.swift; sourceTree = "<group>"; };
 		7556836D219D529D0041E7FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7559DBB321A7A8E0000894E8 /* RecomendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendViewController.swift; sourceTree = "<group>"; };
 		75C08AE721A52DFD00AD45B5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		75C08AEE21A52EF500AD45B5 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		75C08AF321A52EFE00AD45B5 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				75C08AE721A52DFD00AD45B5 /* Home.storyboard */,
 				75C08AFC21A52FDC00AD45B5 /* HomeViewController.swift */,
+				7559DBB321A7A8E0000894E8 /* RecomendViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				75C08B0221A537DD00AD45B5 /* PageTitleView.swift in Sources */,
 				753422D521A5548F0057C227 /* UIColor+Extension.swift in Sources */,
 				753422D321A550350057C227 /* PageContentView.swift in Sources */,
+				7559DBB421A7A8E0000894E8 /* RecomendViewController.swift in Sources */,
 				7556834C219D529B0041E7FD /* AppDelegate.swift in Sources */,
 				753422CF21A544B00057C227 /* Commond.swift in Sources */,
 				75C08B0021A5320E00AD45B5 /* UIBarButtonItem+Extension.swift in Sources */,
