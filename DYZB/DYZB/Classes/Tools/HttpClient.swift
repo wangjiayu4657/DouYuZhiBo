@@ -15,7 +15,7 @@ enum methodType {
 }
 
 class HttpClient {
-    class func Request(type:methodType,url:String,params:[String:AnyObject]?=nil,callBack:@escaping (_ response:Any)->()) {
+    class func Request(type:methodType,url:String,params:[String:Any]?=nil,callBack:@escaping (_ response:Any)->()) {
         
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         Alamofire.request(url, method: method, parameters: params).responseJSON { (response) in

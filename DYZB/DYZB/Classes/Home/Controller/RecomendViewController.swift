@@ -22,6 +22,7 @@ private let kCellHeaderViewID = "kCellHeaderViewID"
 class RecomendViewController: UIViewController {
 
     // MARK: - 懒加载
+    private lazy var recomendVM:RecomendViewModel = RecomendViewModel()
     private lazy var collectionView:UICollectionView = {
         //创建 collectionView 的布局样式
         let layout = UICollectionViewFlowLayout()
@@ -45,10 +46,15 @@ class RecomendViewController: UIViewController {
         return collectionView
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
+        
+        recomendVM.requestData {[weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 
 }
@@ -64,15 +70,12 @@ extension RecomendViewController {
 // MARK: - 遵守UICollectionViewDataSource协议
 extension RecomendViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+        return recomendVM.groups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 8
-        }
-        
-        return 4
+        let group = recomendVM.groups[section]
+        return group.anchors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -84,12 +87,17 @@ extension RecomendViewController : UICollectionViewDataSource,UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : UICollectionViewCell
+        let cell:CollectionBaseCell
+        
         if indexPath.section == 1 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath)
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
         }else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
         }
+        
+        let anchorGroup = recomendVM.groups[indexPath.section];
+        cell.anchor = anchorGroup.anchors[indexPath.item]
+        
         return cell
     }
 }
@@ -97,9 +105,23 @@ extension RecomendViewController : UICollectionViewDataSource,UICollectionViewDe
 // MARK: - 遵守UICollectionViewDelegate协议
 extension RecomendViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kCellHeaderViewID, for: indexPath)
-//        sectionHeaderView.backgroundColor = UIColor.orange
+        let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kCellHeaderViewID, for: indexPath) as! CollectionHeaderView
+
+        sectionHeaderView.groupModel = recomendVM.groups[indexPath.section]
+        
         return sectionHeaderView
     }
 }
 
+// MARK: - 数据请求
+//extension RecomendViewController {
+//    //http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1474252024
+//    func requestData() {
+//        let time = Date.currentTime()
+//        print(time)
+//        let param : [String : Any] = ["limit":4,"offset":0,"time":Date.currentTime()]
+//        HttpClient.Request(type: .post, url: "http://capi.douyucdn.cn/api/v1/getHotCate", params:param) { (response) in
+//            print(response)
+//        }
+//    }
+//}
