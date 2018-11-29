@@ -11,15 +11,18 @@ import UIKit
 
 class RecomendViewModel {
     lazy var groups:[AnchorGroup] = [AnchorGroup]()
+    lazy var cycles:[CycleModel] = [CycleModel]()
     //推荐组
     private lazy var recomendGroup:AnchorGroup = AnchorGroup()
     //颜值组
     private lazy var prettyGroup:AnchorGroup = AnchorGroup()
+    
 }
 
 
 // MARK: - 网络请求
 extension RecomendViewModel {
+    //请求推荐内容数据
     //http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1474252024
     func requestData(finishedCallBack:@escaping ()->()) {
         let time = Date.currentTime()
@@ -72,6 +75,20 @@ extension RecomendViewModel {
         group.notify(queue: DispatchQueue.main) {
             self.groups.insert(self.prettyGroup, at: 0)
             self.groups.insert(self.recomendGroup, at:0)
+            
+            finishedCallBack()
+        }
+    }
+    
+    //请求推荐界面轮播数据
+    func requestCycleData(finishedCallBack:@escaping ()->()) {
+        HttpClient.Request(type: .get, url: "http://www.douyutv.com/api/v1/slide/6", params: ["version":"2.300"]) { (response) in
+            print(response)
+            guard let dataDict = response as? [String : Any] else { return }
+            guard let dataArr = dataDict["data"] as? [[String : Any]] else { return }
+            for dict in dataArr {
+                self.cycles.append(CycleModel(dict))
+            }
             
             finishedCallBack()
         }

@@ -114,6 +114,9 @@ extension PageTitleView {
     @objc private func titleLbClick(tap: UITapGestureRecognizer) {
         //获取当前点击的titleLb
         guard let currentLb = tap.view as? UILabel else { return }
+        
+        if currentIndex == currentLb.tag { return }
+        
         currentLb.textColor = UIColor.orange
         
         //获取起始时的 titleLb

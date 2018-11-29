@@ -14,6 +14,7 @@ private let kItemMargin:CGFloat = 10
 private let kItemW = (kScreenW - 3 * kItemMargin) / 2
 private let kNormalItemH = kItemW * 3 / 4
 private let kPrettyItemH = kItemW * 4 / 3
+private let kCycleViewH:CGFloat = 150
 
 private let kNormalCellID = "kNormalCellID"
 private let kPrettyCellID = "kPrettyCellID"
@@ -23,6 +24,12 @@ class RecomendViewController: UIViewController {
 
     // MARK: - 懒加载
     private lazy var recomendVM:RecomendViewModel = RecomendViewModel()
+    //轮播图
+    private lazy var cycleView:RecomendCycleView = {
+       let cycleView = RecomendCycleView.cycleView()
+        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        return cycleView
+    }()
     private lazy var collectionView:UICollectionView = {
         //创建 collectionView 的布局样式
         let layout = UICollectionViewFlowLayout()
@@ -43,6 +50,7 @@ class RecomendViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
@@ -52,9 +60,9 @@ class RecomendViewController: UIViewController {
 
         setupUI()
         
-        recomendVM.requestData {[weak self] in
-            self?.collectionView.reloadData()
-        }
+        //请求数据
+        loadCycleData()
+        loadCommendContentData()
     }
 
 }
@@ -62,10 +70,31 @@ class RecomendViewController: UIViewController {
 // MARK: -  设置 UI 界面
 extension RecomendViewController {
     private func setupUI() {
+        //添加轮播图
+        collectionView.addSubview(cycleView)
+        //添加 collectionView
         view.addSubview(collectionView)
     }
 }
 
+// MARK: - 数据请求
+extension RecomendViewController {
+    
+    //请求轮播图数据
+    func loadCycleData() {
+        recomendVM.requestCycleData {
+            self.cycleView.cycleModels = self.recomendVM.cycles
+        }
+    }
+    
+    //请求推荐内容数据
+    func loadCommendContentData() {
+        recomendVM.requestData {[weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+    
+}
 
 // MARK: - 遵守UICollectionViewDataSource协议
 extension RecomendViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -113,15 +142,3 @@ extension RecomendViewController : UICollectionViewDelegate {
     }
 }
 
-// MARK: - 数据请求
-//extension RecomendViewController {
-//    //http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1474252024
-//    func requestData() {
-//        let time = Date.currentTime()
-//        print(time)
-//        let param : [String : Any] = ["limit":4,"offset":0,"time":Date.currentTime()]
-//        HttpClient.Request(type: .post, url: "http://capi.douyucdn.cn/api/v1/getHotCate", params:param) { (response) in
-//            print(response)
-//        }
-//    }
-//}
