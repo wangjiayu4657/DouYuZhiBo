@@ -23,6 +23,7 @@ class AnchorGroup: NSObject {
     @objc var push_vertical_screen : Int = 0
     ///房间图标
     @objc var icon_name:String?
+    @objc var icon_url:String = ""
     
     lazy var anchors:[AnchorModel] = [AnchorModel]()
     

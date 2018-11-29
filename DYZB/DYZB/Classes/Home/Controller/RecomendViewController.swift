@@ -14,7 +14,8 @@ private let kItemMargin:CGFloat = 10
 private let kItemW = (kScreenW - 3 * kItemMargin) / 2
 private let kNormalItemH = kItemW * 3 / 4
 private let kPrettyItemH = kItemW * 4 / 3
-private let kCycleViewH:CGFloat = 150
+private let kCycleViewH:CGFloat = kScreenW * 3 / 8
+private let kGameViewH:CGFloat = 90
 
 private let kNormalCellID = "kNormalCellID"
 private let kPrettyCellID = "kPrettyCellID"
@@ -27,8 +28,14 @@ class RecomendViewController: UIViewController {
     //轮播图
     private lazy var cycleView:RecomendCycleView = {
        let cycleView = RecomendCycleView.cycleView()
-        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        cycleView.frame = CGRect(x: 0, y: -(kCycleViewH + kGameViewH), width: kScreenW, height: kCycleViewH)
         return cycleView
+    }()
+    //轮播图下面的游戏推荐
+    private lazy var gameView:RecomendGameView = {
+       let gameView = RecomendGameView.gameView()
+        gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH)
+        return gameView
     }()
     private lazy var collectionView:UICollectionView = {
         //创建 collectionView 的布局样式
@@ -50,7 +57,7 @@ class RecomendViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
@@ -72,6 +79,8 @@ extension RecomendViewController {
     private func setupUI() {
         //添加轮播图
         collectionView.addSubview(cycleView)
+        //添加游戏推荐视图
+        collectionView.addSubview(gameView)
         //添加 collectionView
         view.addSubview(collectionView)
     }
@@ -91,6 +100,7 @@ extension RecomendViewController {
     func loadCommendContentData() {
         recomendVM.requestData {[weak self] in
             self?.collectionView.reloadData()
+            self?.gameView.groups = self?.recomendVM.groups
         }
     }
     
