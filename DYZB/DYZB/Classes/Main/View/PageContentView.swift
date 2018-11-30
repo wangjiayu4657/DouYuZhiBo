@@ -135,7 +135,6 @@ extension PageContentView : UICollectionViewDelegate {
             }
         }
         
-        print("offsetXRadio = \(offsetXRadio) sourceIndex = \(sourceIndex) targetIndex = \(targetIndex)")
         delegate?.contentView(self, radio: offsetXRadio, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }

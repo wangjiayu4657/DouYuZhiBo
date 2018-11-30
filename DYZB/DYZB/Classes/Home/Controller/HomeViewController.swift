@@ -23,7 +23,8 @@ class HomeViewController: UIViewController {
         let contentViewH = kScreenH - contentViewY
         var childVCs : [UIViewController] = [UIViewController]()
         childVCs.append(RecomendViewController())
-        for _ in 0..<3 {
+        childVCs.append(GameViewController())
+        for _ in 0..<2 {
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor.randomColor()
             childVCs.append(vc)

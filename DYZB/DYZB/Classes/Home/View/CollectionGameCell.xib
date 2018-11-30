@@ -12,30 +12,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionGameCell" customModule="DYZB" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionGameCell" customModule="DYZB" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9US-fO-RpT">
-                        <rect key="frame" x="24.5" y="65" width="31" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="yKE-mN-h9s"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9US-fO-RpT">
+                        <rect key="frame" x="24.5" y="67.5" width="31" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5vZ-gb-gph">
-                        <rect key="frame" x="20" y="15" width="40" height="40"/>
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIl-RW-7UU">
+                        <rect key="frame" x="0.0" y="90.5" width="80" height="0.5"/>
+                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="5vZ-gb-gph" secondAttribute="height" multiplier="1:1" id="9Po-dR-a4a"/>
+                            <constraint firstAttribute="height" constant="0.5" id="ToU-UC-MNa"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5vZ-gb-gph">
+                        <rect key="frame" x="17.5" y="14.5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="V9T-ik-eR9"/>
+                            <constraint firstAttribute="height" constant="45" id="ipg-SK-WWg"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="20"/>
+                                <real key="value" value="22.5"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
@@ -43,11 +48,13 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="9US-fO-RpT" firstAttribute="top" secondItem="5vZ-gb-gph" secondAttribute="bottom" constant="10" id="9jn-eQ-DAq"/>
-                <constraint firstItem="9US-fO-RpT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="CJj-iZ-1J2"/>
-                <constraint firstAttribute="bottom" secondItem="9US-fO-RpT" secondAttribute="bottom" constant="10" id="IcF-a0-Zq9"/>
-                <constraint firstItem="5vZ-gb-gph" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="iJC-Lk-vmA"/>
-                <constraint firstItem="5vZ-gb-gph" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="lEk-dc-OqO"/>
+                <constraint firstItem="5vZ-gb-gph" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-8" id="9RK-I7-LhM"/>
+                <constraint firstItem="9US-fO-RpT" firstAttribute="top" secondItem="5vZ-gb-gph" secondAttribute="bottom" constant="8" id="Exo-7N-QUG"/>
+                <constraint firstAttribute="bottom" secondItem="ZIl-RW-7UU" secondAttribute="bottom" constant="-1" id="Tyg-Kw-3Bp"/>
+                <constraint firstAttribute="trailing" secondItem="ZIl-RW-7UU" secondAttribute="trailing" id="aeu-Ab-uwT"/>
+                <constraint firstItem="ZIl-RW-7UU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cS9-fR-aqq"/>
+                <constraint firstItem="5vZ-gb-gph" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="exX-Lr-cSz"/>
+                <constraint firstItem="9US-fO-RpT" firstAttribute="centerX" secondItem="5vZ-gb-gph" secondAttribute="centerX" id="n6i-ur-Rke"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="90" height="83"/>
@@ -55,7 +62,7 @@
                 <outlet property="gameIcon" destination="5vZ-gb-gph" id="ieV-qf-8uG"/>
                 <outlet property="gameNameLb" destination="9US-fO-RpT" id="fSn-Gq-i1u"/>
             </connections>
-            <point key="canvasLocation" x="169.59999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="169.59999999999999" y="138.53073463268368"/>
         </collectionViewCell>
     </objects>
 </document>

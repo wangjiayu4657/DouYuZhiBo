@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,16 +24,16 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_header_hot" translatesAutoresizingMaskIntoConstraints="NO" id="RlT-TF-TLM">
-                    <rect key="frame" x="10" y="20.5" width="18" height="18"/>
+                    <rect key="frame" x="10" y="20.666666666666668" width="18" height="18.000000000000004"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="斗鱼直播" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rt-az-94V">
-                    <rect key="frame" x="33" y="20.5" width="62" height="18"/>
+                    <rect key="frame" x="33" y="20.666666666666668" width="62" height="18.000000000000004"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJR-uC-jOw">
-                    <rect key="frame" x="265" y="14.5" width="45" height="30"/>
+                    <rect key="frame" x="265" y="14.666666666666664" width="45" height="30"/>
                     <state key="normal" title="更多 &gt;">
                         <color key="titleColor" red="0.55294117649999996" green="0.56862745100000001" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -54,9 +54,10 @@
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <connections>
                 <outlet property="iconView" destination="RlT-TF-TLM" id="dab-1n-Z8o"/>
+                <outlet property="moreBtn" destination="sJR-uC-jOw" id="Dyc-jA-5Fu"/>
                 <outlet property="titileLabel" destination="6rt-az-94V" id="cvp-C8-U4a"/>
             </connections>
-            <point key="canvasLocation" x="52.799999999999997" y="48.125937031484263"/>
+            <point key="canvasLocation" x="-86" y="-34"/>
         </collectionReusableView>
     </objects>
     <resources>

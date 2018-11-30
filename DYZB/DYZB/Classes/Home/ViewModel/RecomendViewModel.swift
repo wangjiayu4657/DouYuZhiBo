@@ -83,7 +83,7 @@ extension RecomendViewModel {
     //请求推荐界面轮播数据
     func requestCycleData(finishedCallBack:@escaping ()->()) {
         HttpClient.Request(type: .get, url: "http://www.douyutv.com/api/v1/slide/6", params: ["version":"2.300"]) { (response) in
-            print(response)
+            
             guard let dataDict = response as? [String : Any] else { return }
             guard let dataArr = dataDict["data"] as? [[String : Any]] else { return }
             for dict in dataArr {

@@ -8,9 +8,7 @@
 
 import UIKit
 
-class AnchorGroup: NSObject {
-    
-    @objc var tag_name : String = ""
+class AnchorGroup: BaseGameModel {
     @objc var tag_id : String?
     @objc var room_list : [[String : Any]]? {
         didSet {
@@ -23,18 +21,6 @@ class AnchorGroup: NSObject {
     @objc var push_vertical_screen : Int = 0
     ///房间图标
     @objc var icon_name:String?
-    @objc var icon_url:String = ""
     
     lazy var anchors:[AnchorModel] = [AnchorModel]()
-    
-    //构造函数
-    override init() { }
-    
-    init(_ dict:[String : Any]) {
-        super.init()
-        
-        setValuesForKeys(dict)
-    }
-    
-    override func setValue(_ value: Any?, forUndefinedKey key: String) { }
 }

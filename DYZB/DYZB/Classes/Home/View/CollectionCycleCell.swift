@@ -17,7 +17,6 @@ class CollectionCycleCell: UICollectionViewCell {
     var anchor:CycleModel? {
         didSet {
             guard let anchor = anchor else { return }
-            print(anchor)
             cycleIcon.kf.setImage(with:URL(string: anchor.pic_url))
             titleLb.text = anchor.title
         }
