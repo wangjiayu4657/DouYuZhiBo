@@ -23,10 +23,10 @@ class CollectionHeaderView: UICollectionReusableView {
             titileLabel.text = model.tag_name
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+}
+
+extension CollectionHeaderView {
+    static func headerView() ->CollectionHeaderView {
+        return Bundle.main.loadNibNamed("CollectionHeaderView", owner: nil, options: nil)?.first as! CollectionHeaderView
     }
-    
 }

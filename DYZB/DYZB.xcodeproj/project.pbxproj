@@ -28,6 +28,8 @@
 		7571296521B10D94009B53B2 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296421B10D94009B53B2 /* GameViewModel.swift */; };
 		7571296721B110AD009B53B2 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296621B110AD009B53B2 /* GameModel.swift */; };
 		7571296921B11111009B53B2 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296821B11111009B53B2 /* BaseGameModel.swift */; };
+		7571296B21B1347A009B53B2 /* AmuseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296A21B1347A009B53B2 /* AmuseViewController.swift */; };
+		7571296D21B136C4009B53B2 /* AmuseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296C21B136C4009B53B2 /* AmuseViewModel.swift */; };
 		75C08AE821A52DFD00AD45B5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AE721A52DFD00AD45B5 /* Home.storyboard */; };
 		75C08AEF21A52EF500AD45B5 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AEE21A52EF500AD45B5 /* Live.storyboard */; };
 		75C08AF421A52EFE00AD45B5 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AF321A52EFE00AD45B5 /* Follow.storyboard */; };
@@ -104,6 +106,8 @@
 		7571296421B10D94009B53B2 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		7571296621B110AD009B53B2 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		7571296821B11111009B53B2 /* BaseGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
+		7571296A21B1347A009B53B2 /* AmuseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseViewController.swift; sourceTree = "<group>"; };
+		7571296C21B136C4009B53B2 /* AmuseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseViewModel.swift; sourceTree = "<group>"; };
 		75C08AE721A52DFD00AD45B5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		75C08AEE21A52EF500AD45B5 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		75C08AF321A52EFE00AD45B5 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 				75C08AFC21A52FDC00AD45B5 /* HomeViewController.swift */,
 				7559DBB321A7A8E0000894E8 /* RecomendViewController.swift */,
 				7571296221B10B01009B53B2 /* GameViewController.swift */,
+				7571296A21B1347A009B53B2 /* AmuseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 			children = (
 				75D946B021ACEFD2008B86B1 /* RecomendViewModel.swift */,
 				7571296421B10D94009B53B2 /* GameViewModel.swift */,
+				7571296C21B136C4009B53B2 /* AmuseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -695,6 +701,7 @@
 			files = (
 				7571296721B110AD009B53B2 /* GameModel.swift in Sources */,
 				7559DBB721A7D41E000894E8 /* CollectionHeaderView.swift in Sources */,
+				7571296D21B136C4009B53B2 /* AmuseViewModel.swift in Sources */,
 				75C08B0221A537DD00AD45B5 /* PageTitleView.swift in Sources */,
 				75D946AD21ACED6E008B86B1 /* Date+Extension.swift in Sources */,
 				753422D521A5548F0057C227 /* UIColor+Extension.swift in Sources */,
@@ -708,6 +715,7 @@
 				75C1E07721AF8AC10090FD38 /* RecomendCycleView.swift in Sources */,
 				7559DBB421A7A8E0000894E8 /* RecomendViewController.swift in Sources */,
 				7571296521B10D94009B53B2 /* GameViewModel.swift in Sources */,
+				7571296B21B1347A009B53B2 /* AmuseViewController.swift in Sources */,
 				75D946B521AD0CB5008B86B1 /* AnchorModel.swift in Sources */,
 				75C1E07C21AF93B80090FD38 /* CollectionCycleCell.swift in Sources */,
 				7571296321B10B01009B53B2 /* GameViewController.swift in Sources */,

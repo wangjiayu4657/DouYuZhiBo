@@ -100,7 +100,19 @@ extension RecomendViewController {
     func loadCommendContentData() {
         recomendVM.requestData {[weak self] in
             self?.collectionView.reloadData()
-            self?.gameView.groups = self?.recomendVM.groups
+            
+            var groups = self?.recomendVM.groups
+            //火热 和 颜值两组不显示
+            groups?.removeFirst()
+            groups?.removeFirst()
+            
+            //添加最有一组更多数据
+            let groupModel = AnchorGroup()
+            groupModel.tag_name = "更多"
+            groupModel.icon_url = ""
+            groups?.append(groupModel)
+            
+            self?.gameView.groups = groups
         }
     }
     

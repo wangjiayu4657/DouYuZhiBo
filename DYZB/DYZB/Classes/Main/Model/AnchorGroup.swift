@@ -9,7 +9,7 @@
 import UIKit
 
 class AnchorGroup: BaseGameModel {
-    @objc var tag_id : String?
+    @objc var tag_id : Int = 0
     @objc var room_list : [[String : Any]]? {
         didSet {
             guard let room_list = room_list else { return }
