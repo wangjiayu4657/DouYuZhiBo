@@ -11,15 +11,15 @@ import UIKit
 
 // MARK: - 定义常量
 private let kItemMargin:CGFloat = 10
-private let kNormalItemW = (kScreenW - 3 * kItemMargin) / 2
-private let kNormalItemH = kNormalItemW * 3 / 4
-private let kPrettyItemH = kNormalItemW * 4 / 3
-private let kCycleViewH:CGFloat = kScreenW * 3 / 8
-private let kGameViewH:CGFloat = 90
+
+let kNormalItemW = (kScreenW - 3 * kItemMargin) / 2
+let kNormalItemH = kNormalItemW * 3 / 4
+let kPrettyItemH = kNormalItemW * 4 / 3
 
 
+
+let kPrettyCellID = "kPrettyCellID"
 private let kNormalCellID = "kNormalCellID"
-private let kPrettyCellID = "kPrettyCellID"
 private let kCellHeaderViewID = "kCellHeaderViewID"
 
 class BaseAnchorViewController: UIViewController {
@@ -43,7 +43,7 @@ class BaseAnchorViewController: UIViewController {
 
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kCellHeaderViewID)
         collectionView.backgroundColor = UIColor.white
-        //        collectionView.delegate = self
+        collectionView.delegate = self as? UICollectionViewDelegate 
         collectionView.dataSource = self
         collectionView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         //        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
@@ -64,7 +64,7 @@ class BaseAnchorViewController: UIViewController {
 
 // MARK: - 设置 UI
 extension BaseAnchorViewController {
-    func  setupUI() {
+    @objc func  setupUI() {
         view.addSubview(collectionView)
     }
 }
@@ -92,7 +92,6 @@ extension BaseAnchorViewController : UICollectionViewDataSource{
         return headerView
     }
 }
-
 // MARK: - 请求数据
 extension BaseAnchorViewController {
     //swift4 要想方法被重写必须要在该方法前面加上@objc 关键字
