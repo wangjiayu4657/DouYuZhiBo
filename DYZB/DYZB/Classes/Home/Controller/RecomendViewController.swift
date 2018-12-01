@@ -43,7 +43,7 @@ extension RecomendViewController {
     override func setupUI() {
         super.setupUI()
         //设置collectionView内边距显示头部视图
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
+        sectionInsetTop = kCycleViewH + kGameViewH
         //添加轮播图
         collectionView.addSubview(cycleView)
         //添加游戏推荐视图

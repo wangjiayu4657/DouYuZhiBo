@@ -8,10 +8,25 @@
 
 import UIKit
 
+private let kAmuseViewH:CGFloat = 200
+
 class AmuseViewController: BaseAnchorViewController {
 
     // MARK: - 懒加载
     private lazy var amuseVM:AmuseViewModel = AmuseViewModel()
+    private lazy var amuseView:AmuseMenuView = {
+        let amuseView = AmuseMenuView.amuseView()
+        amuseView.frame = CGRect(x: 0, y: -kAmuseViewH, width: kScreenW, height: kAmuseViewH)
+        return amuseView
+    }()
+}
+
+extension AmuseViewController {
+    override func setupUI() {
+        super.setupUI()
+        sectionInsetTop = kAmuseViewH
+        collectionView.addSubview(amuseView)
+    }
 }
 
 // MARK: - 请求数据

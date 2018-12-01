@@ -14,8 +14,7 @@ class GameViewModel: NSObject {
 
 extension GameViewModel {
     func gameRequest(finishedCallBack:@escaping ()->()) {
-        HttpClient.Request(type: .get, url: "http://capi.douyucdn.cn/api/v1/getColumnDetail") { (response) in
-            print(response)
+        HttpClient.Request(type: .get, url: "http://capi.douyucdn.cn/api/v1/getColumnDetail") { (response) in   
             guard let dataDict = response as? [String : Any] else { return }
             guard let dataArr = dataDict["data"] as? [[String : Any]] else { return }
             

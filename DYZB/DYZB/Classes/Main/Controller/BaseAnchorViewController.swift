@@ -25,6 +25,11 @@ private let kCellHeaderViewID = "kCellHeaderViewID"
 class BaseAnchorViewController: UIViewController {
 
     var baseVM:BaseViewModel!
+    var sectionInsetTop:CGFloat = 0 {
+        didSet {
+            collectionView.contentInset = UIEdgeInsets(top: sectionInsetTop, left: 0, bottom: 0, right: 0)
+        }
+    }
     // MARK: - 懒加载
      lazy var collectionView:UICollectionView = {
         //创建 collectionView 的布局样式
@@ -46,7 +51,6 @@ class BaseAnchorViewController: UIViewController {
         collectionView.delegate = self as? UICollectionViewDelegate 
         collectionView.dataSource = self
         collectionView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        //        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
