@@ -8,21 +8,12 @@
 
 import UIKit
 
-class AmuseViewModel {
-    lazy var amuses:[AnchorGroup] = [AnchorGroup]()
+class AmuseViewModel : BaseViewModel {
+    
 }
 
 extension AmuseViewModel {
     func amuseRquest(finishedCallBack:@escaping()->()) {
-        HttpClient.Request(type: .get, url: "http://capi.douyucdn.cn/api/v1/getHotRoom/2") { (response) in
-            guard let dataDict = response as? [String : Any] else { return }
-            guard let dataArr = dataDict["data"] as? [[String : Any]] else { return }
-            
-            for dict in dataArr {
-                self.amuses.append(AnchorGroup(dict))
-            }
-            
-            finishedCallBack()
-        }
+        anchorRequest(url: "http://capi.douyucdn.cn/api/v1/getHotRoom/2", finishedCallBack: finishedCallBack)
     }
 }

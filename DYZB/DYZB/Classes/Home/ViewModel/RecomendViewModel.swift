@@ -9,14 +9,12 @@
 import UIKit
 
 
-class RecomendViewModel {
-    lazy var groups:[AnchorGroup] = [AnchorGroup]()
+class RecomendViewModel : BaseViewModel {
     lazy var cycles:[CycleModel] = [CycleModel]()
     //推荐组
     private lazy var recomendGroup:AnchorGroup = AnchorGroup()
     //颜值组
     private lazy var prettyGroup:AnchorGroup = AnchorGroup()
-    
 }
 
 
@@ -63,12 +61,7 @@ extension RecomendViewModel {
         
         group.enter()
         //请求2-12部分游戏数据
-        HttpClient.Request(type: .get, url: "http://capi.douyucdn.cn/api/v1/getHotCate", params:param) { (response) in
-            guard let dataDict = response as? [String : Any] else { return }
-            guard let dataArr = dataDict["data"] as? [[String : Any]] else { return }
-            for dict in dataArr {
-                self.groups.append(AnchorGroup(dict))
-            }
+        anchorRequest(url: "http://capi.douyucdn.cn/api/v1/getHotCate",params: param) {
             group.leave()
         }
         

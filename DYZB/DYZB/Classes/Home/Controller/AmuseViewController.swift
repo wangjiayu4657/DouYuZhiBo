@@ -52,12 +52,9 @@ class AmuseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.orange
-
         setupUI()
         
         requstData()
-        
     }
 }
 
@@ -80,23 +77,23 @@ extension AmuseViewController {
 // MARK: - 遵守UICollectionViewDataSource协议
 extension AmuseViewController : UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-         return amuseVM.amuses.count
+         return amuseVM.groups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return amuseVM.amuses[section].anchors.count
+        return amuseVM.groups[section].anchors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
         
-        cell.anchor = amuseVM.amuses[indexPath.section].anchors[indexPath.item]
+        cell.anchor = amuseVM.groups[indexPath.section].anchors[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kCellHeaderViewID, for: indexPath) as! CollectionHeaderView
-        headerView.groupModel = amuseVM.amuses[indexPath.section]
+        headerView.groupModel = amuseVM.groups[indexPath.section]
         return headerView
     }
 }
