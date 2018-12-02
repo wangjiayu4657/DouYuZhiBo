@@ -94,18 +94,29 @@ class AmuseMenuView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    // MARK: - 定义属性
+    var amuseGroup:[AnchorGroup]? {
+        didSet {
+            pageControl.isHidden = false
+            collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         autoresizingMask = UIView.AutoresizingMask()
+        collectionView.register(UINib(nibName: "CollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kAmuseCellID)
+    }
+    
+    override func layoutSubviews() {
+         super.layoutSubviews()
         
         let layout:AmuseMenuLayout = AmuseMenuLayout()
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         
         collectionView.collectionViewLayout = layout
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kAmuseCellID)
-//        collectionView.dataSource = self
     }
 }
 
@@ -116,17 +127,22 @@ extension AmuseMenuView {
 }
 
 extension AmuseMenuView : UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 27
+        guard let count = amuseGroup?.count else { return 0 }
+        pageControl.numberOfPages = (count - 1) / 8 + 1
+        return amuseGroup?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kAmuseCellID, for: indexPath)
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kAmuseCellID, for: indexPath) as! CollectionGameCell
+        cell.game = amuseGroup![indexPath.item]
+        cell.clipsToBounds = true
         return cell
+    }
+}
+
+extension AmuseMenuView : UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x / collectionView.bounds.width)
     }
 }

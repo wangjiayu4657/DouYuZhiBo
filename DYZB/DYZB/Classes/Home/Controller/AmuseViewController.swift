@@ -36,6 +36,10 @@ extension AmuseViewController {
 
         amuseVM.amuseRquest {
             self.collectionView.reloadData()
+            
+            var tempArr = self.amuseVM.groups
+            tempArr.removeFirst()
+            self.amuseView.amuseGroup = tempArr
         }
     }
 }
