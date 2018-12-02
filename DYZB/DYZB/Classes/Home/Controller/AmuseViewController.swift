@@ -40,6 +40,9 @@ extension AmuseViewController {
             var tempArr = self.amuseVM.groups
             tempArr.removeFirst()
             self.amuseView.amuseGroup = tempArr
+            
+            //数据请求完成时隐藏加载动画
+            self.loadDataFinished()
         }
     }
 }

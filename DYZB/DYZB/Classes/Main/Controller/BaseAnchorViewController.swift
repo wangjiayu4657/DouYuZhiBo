@@ -22,7 +22,7 @@ let kPrettyCellID = "kPrettyCellID"
 private let kNormalCellID = "kNormalCellID"
 private let kCellHeaderViewID = "kCellHeaderViewID"
 
-class BaseAnchorViewController: UIViewController {
+class BaseAnchorViewController: BaseViewController {
 
     var baseVM:BaseViewModel? {
         didSet {
@@ -66,14 +66,19 @@ class BaseAnchorViewController: UIViewController {
         
         requstData()
     }
-
-    
 }
 
 // MARK: - 设置 UI
 extension BaseAnchorViewController {
-    @objc func  setupUI() {
+    override func  setupUI() {
+        //父类中的内容视图赋值
+        contentView = collectionView
+        
+        //添加collectionView
         view.addSubview(collectionView)
+        
+        //调用父类的setupUI (为了让 collectionView 先隐藏,加载完数据后在显示)
+        super.setupUI()
     }
 }
 
@@ -100,6 +105,28 @@ extension BaseAnchorViewController : UICollectionViewDataSource{
         return headerView
     }
 }
+
+extension BaseAnchorViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let anchor = baseVM?.groups[indexPath.section].anchors[indexPath.item]
+        anchor?.isVertical == 0 ? normalRoomVC() : showRoomVC()
+        
+    }
+    
+    private func showRoomVC() {
+        let showRoomVC = ShowRoomViewController()
+       navigationController?.present(showRoomVC, animated: true, completion: nil)
+    }
+    
+    private func normalRoomVC() {
+        let normalRoomVC = NormalRoomViewController()
+        navigationController?.pushViewController(normalRoomVC, animated: true)
+    }
+}
+
+
 // MARK: - 请求数据
 extension BaseAnchorViewController {
     //swift4 要想方法被重写必须要在该方法前面加上@objc 关键字

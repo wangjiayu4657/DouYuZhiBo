@@ -80,6 +80,9 @@ extension RecomendViewController {
             groups?.append(groupModel)
             
             self?.gameView.groups = groups
+            
+            //数据请求完成时隐藏加载动画
+            self?.loadDataFinished()
         }
     }
 }

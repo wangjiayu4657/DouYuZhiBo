@@ -59,6 +59,10 @@
 		75E15D3021AFDC1F005846E3 /* CollectionGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E15D2E21AFDC1F005846E3 /* CollectionGameCell.xib */; };
 		75F6E94221B37AEB009D4A40 /* FunnyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94121B37AEB009D4A40 /* FunnyViewController.swift */; };
 		75F6E94421B37BB4009D4A40 /* FunnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94321B37BB4009D4A40 /* FunnyViewModel.swift */; };
+		75F6E94621B3CB29009D4A40 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94521B3CB29009D4A40 /* BaseViewController.swift */; };
+		75F6E94C21B3DB00009D4A40 /* ShowRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94B21B3DB00009D4A40 /* ShowRoomViewController.swift */; };
+		75F6E94E21B3DB0C009D4A40 /* NormalRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94D21B3DB0C009D4A40 /* NormalRoomViewController.swift */; };
+		75F6E95021B3DCCB009D4A40 /* CustomNavgationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94F21B3DCCB009D4A40 /* CustomNavgationController.swift */; };
 		A30514D3722A643A5AA513DF /* Pods_DYZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AAFE80B52363F2D0F8886A /* Pods_DYZB.framework */; };
 		CD72714AEEF8DCA176AC368E /* Pods_DYZBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1250FAC6DB822627222E9AC0 /* Pods_DYZBUITests.framework */; };
 /* End PBXBuildFile section */
@@ -144,6 +148,10 @@
 		75E15D2E21AFDC1F005846E3 /* CollectionGameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGameCell.xib; sourceTree = "<group>"; };
 		75F6E94121B37AEB009D4A40 /* FunnyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyViewController.swift; sourceTree = "<group>"; };
 		75F6E94321B37BB4009D4A40 /* FunnyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyViewModel.swift; sourceTree = "<group>"; };
+		75F6E94521B3CB29009D4A40 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		75F6E94B21B3DB00009D4A40 /* ShowRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRoomViewController.swift; sourceTree = "<group>"; };
+		75F6E94D21B3DB0C009D4A40 /* NormalRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalRoomViewController.swift; sourceTree = "<group>"; };
+		75F6E94F21B3DCCB009D4A40 /* CustomNavgationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavgationController.swift; sourceTree = "<group>"; };
 		B1CC677750366D04624443F0 /* Pods_DYZBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYZBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AAFE80B52363F2D0F8886A /* Pods_DYZB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYZB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8666228E504FFF35F9CC84 /* Pods-DYZBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYZBTests/Pods-DYZBTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 		757A3399219DA1870093E299 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				75F6E94721B3DA5A009D4A40 /* Room */,
 				757A339F219DA1870093E299 /* Main */,
 				757A339A219DA1870093E299 /* Home */,
 				757A339E219DA1870093E299 /* Live */,
@@ -355,7 +364,9 @@
 			isa = PBXGroup;
 			children = (
 				75C08AFA21A52FA700AD45B5 /* Main.storyboard */,
+				75F6E94521B3CB29009D4A40 /* BaseViewController.swift */,
 				7571297021B211B6009B53B2 /* BaseAnchorViewController.swift */,
+				75F6E94F21B3DCCB009D4A40 /* CustomNavgationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -495,6 +506,39 @@
 				75F6E94321B37BB4009D4A40 /* FunnyViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		75F6E94721B3DA5A009D4A40 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				75F6E94921B3DA5A009D4A40 /* Model */,
+				75F6E94A21B3DA5A009D4A40 /* View */,
+				75F6E94821B3DA5A009D4A40 /* Controller */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		75F6E94821B3DA5A009D4A40 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75F6E94B21B3DB00009D4A40 /* ShowRoomViewController.swift */,
+				75F6E94D21B3DB0C009D4A40 /* NormalRoomViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		75F6E94921B3DA5A009D4A40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75F6E94A21B3DA5A009D4A40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -726,7 +770,9 @@
 				7559DBB721A7D41E000894E8 /* CollectionHeaderView.swift in Sources */,
 				7571296D21B136C4009B53B2 /* AmuseViewModel.swift in Sources */,
 				75C08B0221A537DD00AD45B5 /* PageTitleView.swift in Sources */,
+				75F6E94621B3CB29009D4A40 /* BaseViewController.swift in Sources */,
 				75D946AD21ACED6E008B86B1 /* Date+Extension.swift in Sources */,
+				75F6E94E21B3DB0C009D4A40 /* NormalRoomViewController.swift in Sources */,
 				7515DF6021B28D0900CC95F3 /* AmuseMenuLayout.swift in Sources */,
 				753422D521A5548F0057C227 /* UIColor+Extension.swift in Sources */,
 				7513B83821AD3532007FE1E7 /* CollectionBaseCell.swift in Sources */,
@@ -739,7 +785,9 @@
 				75C1E07F21AFA9F80090FD38 /* CycleModel.swift in Sources */,
 				75C1E07721AF8AC10090FD38 /* RecomendCycleView.swift in Sources */,
 				7559DBB421A7A8E0000894E8 /* RecomendViewController.swift in Sources */,
+				75F6E95021B3DCCB009D4A40 /* CustomNavgationController.swift in Sources */,
 				7571296521B10D94009B53B2 /* GameViewModel.swift in Sources */,
+				75F6E94C21B3DB00009D4A40 /* ShowRoomViewController.swift in Sources */,
 				7571296B21B1347A009B53B2 /* AmuseViewController.swift in Sources */,
 				75F6E94221B37AEB009D4A40 /* FunnyViewController.swift in Sources */,
 				75D946B521AD0CB5008B86B1 /* AnchorModel.swift in Sources */,

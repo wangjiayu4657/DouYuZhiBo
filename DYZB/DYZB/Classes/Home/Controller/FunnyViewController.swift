@@ -16,7 +16,7 @@ class FunnyViewController: BaseAnchorViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.magenta
+        setupUI()
     }
     
     
@@ -40,6 +40,9 @@ extension FunnyViewController {
         
         funnyVM.funnyRequest {
             self.collectionView.reloadData()
+            
+            //数据请求完成时隐藏加载动画
+            self.loadDataFinished()
         }
     }
 }
