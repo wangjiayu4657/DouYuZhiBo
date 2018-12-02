@@ -30,7 +30,14 @@ class RecomendGameView: UIView {
         //注册 cell
         collectionView.register(UINib(nibName: "CollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID)
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let layout = AmuseMenuLayout()
+        layout.rows = 1
+        collectionView.collectionViewLayout = layout
+    }
 }
 
 extension RecomendGameView {

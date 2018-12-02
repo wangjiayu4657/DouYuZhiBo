@@ -25,11 +25,7 @@ class HomeViewController: UIViewController {
         childVCs.append(RecomendViewController())
         childVCs.append(GameViewController())
         childVCs.append(AmuseViewController())
-        for _ in 0..<1 {
-            let vc = UIViewController()
-            vc.view.backgroundColor = UIColor.randomColor()
-            childVCs.append(vc)
-        }
+        childVCs.append(FunnyViewController())
         
        let contentView = PageContentView(frame: CGRect(x: 0, y: contentViewY, width: kScreenW, height: contentViewH), childVCs: childVCs, parentVC: self)
         contentView.backgroundColor = UIColor.red

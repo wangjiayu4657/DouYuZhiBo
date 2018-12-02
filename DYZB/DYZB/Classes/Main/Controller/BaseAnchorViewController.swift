@@ -24,7 +24,11 @@ private let kCellHeaderViewID = "kCellHeaderViewID"
 
 class BaseAnchorViewController: UIViewController {
 
-    var baseVM:BaseViewModel!
+    var baseVM:BaseViewModel? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     var sectionInsetTop:CGFloat = 0 {
         didSet {
             collectionView.contentInset = UIEdgeInsets(top: sectionInsetTop, left: 0, bottom: 0, right: 0)
@@ -76,23 +80,23 @@ extension BaseAnchorViewController {
 // MARK: - 遵守UICollectionViewDataSource协议
 extension BaseAnchorViewController : UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return baseVM.groups.count
+        return baseVM?.groups.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return baseVM.groups[section].anchors.count
+        return baseVM?.groups[section].anchors.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
         
-        cell.anchor = baseVM.groups[indexPath.section].anchors[indexPath.item]
+        cell.anchor = baseVM!.groups[indexPath.section].anchors[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kCellHeaderViewID, for: indexPath) as! CollectionHeaderView
-        headerView.groupModel = baseVM.groups[indexPath.section]
+        headerView.groupModel = baseVM!.groups[indexPath.section]
         return headerView
     }
 }

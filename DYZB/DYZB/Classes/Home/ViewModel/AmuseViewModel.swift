@@ -14,6 +14,6 @@ class AmuseViewModel : BaseViewModel {
 
 extension AmuseViewModel {
     func amuseRquest(finishedCallBack:@escaping()->()) {
-        anchorRequest(url: "http://capi.douyucdn.cn/api/v1/getHotRoom/2", finishedCallBack: finishedCallBack)
+        anchorRequest(isGroupData:true,url: "http://capi.douyucdn.cn/api/v1/getHotRoom/2", finishedCallBack: finishedCallBack)
     }
 }

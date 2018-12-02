@@ -61,7 +61,7 @@ extension RecomendViewModel {
         
         group.enter()
         //请求2-12部分游戏数据
-        anchorRequest(url: "http://capi.douyucdn.cn/api/v1/getHotCate",params: param) {
+        anchorRequest(isGroupData:true, url: "http://capi.douyucdn.cn/api/v1/getHotCate",params: param) {
             group.leave()
         }
         

@@ -57,6 +57,8 @@
 		75E15D2C21AFD887005846E3 /* RecomendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E15D2B21AFD887005846E3 /* RecomendGameView.xib */; };
 		75E15D2F21AFDC1F005846E3 /* CollectionGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E15D2D21AFDC1F005846E3 /* CollectionGameCell.swift */; };
 		75E15D3021AFDC1F005846E3 /* CollectionGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E15D2E21AFDC1F005846E3 /* CollectionGameCell.xib */; };
+		75F6E94221B37AEB009D4A40 /* FunnyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94121B37AEB009D4A40 /* FunnyViewController.swift */; };
+		75F6E94421B37BB4009D4A40 /* FunnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6E94321B37BB4009D4A40 /* FunnyViewModel.swift */; };
 		A30514D3722A643A5AA513DF /* Pods_DYZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AAFE80B52363F2D0F8886A /* Pods_DYZB.framework */; };
 		CD72714AEEF8DCA176AC368E /* Pods_DYZBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1250FAC6DB822627222E9AC0 /* Pods_DYZBUITests.framework */; };
 /* End PBXBuildFile section */
@@ -140,6 +142,8 @@
 		75E15D2B21AFD887005846E3 /* RecomendGameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecomendGameView.xib; sourceTree = "<group>"; };
 		75E15D2D21AFDC1F005846E3 /* CollectionGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGameCell.swift; sourceTree = "<group>"; };
 		75E15D2E21AFDC1F005846E3 /* CollectionGameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGameCell.xib; sourceTree = "<group>"; };
+		75F6E94121B37AEB009D4A40 /* FunnyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyViewController.swift; sourceTree = "<group>"; };
+		75F6E94321B37BB4009D4A40 /* FunnyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyViewModel.swift; sourceTree = "<group>"; };
 		B1CC677750366D04624443F0 /* Pods_DYZBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYZBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AAFE80B52363F2D0F8886A /* Pods_DYZB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYZB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8666228E504FFF35F9CC84 /* Pods-DYZBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYZBTests/Pods-DYZBTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 				7559DBB321A7A8E0000894E8 /* RecomendViewController.swift */,
 				7571296221B10B01009B53B2 /* GameViewController.swift */,
 				7571296A21B1347A009B53B2 /* AmuseViewController.swift */,
+				75F6E94121B37AEB009D4A40 /* FunnyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				75D946B021ACEFD2008B86B1 /* RecomendViewModel.swift */,
 				7571296421B10D94009B53B2 /* GameViewModel.swift */,
 				7571296C21B136C4009B53B2 /* AmuseViewModel.swift */,
+				75F6E94321B37BB4009D4A40 /* FunnyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -735,6 +741,7 @@
 				7559DBB421A7A8E0000894E8 /* RecomendViewController.swift in Sources */,
 				7571296521B10D94009B53B2 /* GameViewModel.swift in Sources */,
 				7571296B21B1347A009B53B2 /* AmuseViewController.swift in Sources */,
+				75F6E94221B37AEB009D4A40 /* FunnyViewController.swift in Sources */,
 				75D946B521AD0CB5008B86B1 /* AnchorModel.swift in Sources */,
 				75C1E07C21AF93B80090FD38 /* CollectionCycleCell.swift in Sources */,
 				7571296321B10B01009B53B2 /* GameViewController.swift in Sources */,
@@ -747,6 +754,7 @@
 				75D946B321ACF18B008B86B1 /* AnchorGroup.swift in Sources */,
 				75D946AB21ACE80B008B86B1 /* HttpClient.swift in Sources */,
 				75C08AFD21A52FDC00AD45B5 /* HomeViewController.swift in Sources */,
+				75F6E94421B37BB4009D4A40 /* FunnyViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ class CollectionBaseCell: UICollectionViewCell {
             guard let anchor = anchor else { return }
             //显示资源图片
             let iconURL = URL(string: anchor.vertical_src)
-            iconView.kf.setImage(with: iconURL)
+            iconView.kf.setImage(with: iconURL, placeholder: UIImage(named: "Img_default"))
             
             //显示昵称
             nickNameLb.text = anchor.nickname
