@@ -15,6 +15,10 @@ enum DirectionLayout {
     case vertical
 }
 
+protocol AmuseMenuLayoutDataSource : class {
+    func amuseMenuLayout(_ layout:AmuseMenuLayout,index:Int) -> CGFloat
+}
+
 class AmuseMenuLayout: UICollectionViewLayout {
     var rows:Int = 2                                        //默认行数
     var cols:Int = 4                                        //默认列数
@@ -24,6 +28,7 @@ class AmuseMenuLayout: UICollectionViewLayout {
     var minimumInteritemSpacing:CGFloat = 0                 //默认列间距
     var sectionInset:UIEdgeInsets = UIEdgeInsets.zero       //默认内边距
     var layoutDirection:DirectionLayout
+    weak var dataSource:AmuseMenuLayoutDataSource?
     lazy var attributes:[UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
     
     init(direction:DirectionLayout) {
@@ -112,22 +117,22 @@ extension AmuseMenuLayout {
         for index in 0..<itemCount {
             let indexPath = IndexPath(item: index, section: 0)
             let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            let itemH = CGFloat(arc4random_uniform(150) + 80)
+            let itemH:CGFloat = dataSource?.amuseMenuLayout(self, index: index) ?? 100
             //获取数组中最小的高度
             let minHeigth:CGFloat = indexHight.min()!
             //当前 item 所在的列数
             let index = indexHight.firstIndex(of: minHeigth)!
             
-            let itemX = sectionInset.left + (itemW + minimumInteritemSpacing) * CGFloat(index) + sectionInset.right
-            let itemY = minHeigth + minimumLineSpacing
+            let itemX = sectionInset.left + (itemW + minimumInteritemSpacing) * CGFloat(index)
+            let itemY = minHeigth
             
             attribute.frame = CGRect(x: itemX, y: itemY, width: itemW, height: itemH)
             attributes.append(attribute)
             
-            indexHight[index] = attribute.frame.maxY
+            indexHight[index] = attribute.frame.maxY + minimumLineSpacing
         }
         
-        totalHeight = indexHight.max()! + sectionInset.bottom
+        totalHeight = indexHight.max()! + sectionInset.bottom - minimumLineSpacing
     }
 }
 

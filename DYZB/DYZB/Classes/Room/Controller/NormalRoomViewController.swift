@@ -15,12 +15,14 @@ class NormalRoomViewController: UIViewController {
     // MARK: - 懒加载
     private lazy var collectionView:UICollectionView = { [unowned self] in
         let layout = AmuseMenuLayout(direction: DirectionLayout.vertical)
+        layout.dataSource = self
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
-        layout.cols = 3
+        layout.cols = 2
         
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -29,6 +31,8 @@ class NormalRoomViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.white
         
         setupUI()
     }
@@ -74,6 +78,12 @@ extension NormalRoomViewController : UICollectionViewDelegate {
     }
 }
 
+
+extension NormalRoomViewController : AmuseMenuLayoutDataSource {
+    func amuseMenuLayout(_ layout: AmuseMenuLayout, index: Int) -> CGFloat {
+        return index % 2 == 0 ? (kScreenW * 2 / 3) : (kScreenW * 0.5)
+    }
+}
 
 // MARK: - 隐藏导航后依然保持左边栏的 pop 手势
 extension NormalRoomViewController : UINavigationControllerDelegate {
