@@ -34,7 +34,7 @@ class RecomendGameView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let layout = AmuseMenuLayout()
+        let layout = AmuseMenuLayout(direction: .horizontal)
         layout.rows = 1
         collectionView.collectionViewLayout = layout
     }

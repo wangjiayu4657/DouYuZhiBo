@@ -112,7 +112,7 @@ class AmuseMenuView: UIView {
     override func layoutSubviews() {
          super.layoutSubviews()
         
-        let layout:AmuseMenuLayout = AmuseMenuLayout()
+        let layout:AmuseMenuLayout = AmuseMenuLayout(direction: .horizontal)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         

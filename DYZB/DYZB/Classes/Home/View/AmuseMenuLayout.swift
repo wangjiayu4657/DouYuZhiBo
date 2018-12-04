@@ -9,25 +9,51 @@
 
 import UIKit
 
+// MARK: - 定义布局方向
+enum DirectionLayout {
+    case horizontal
+    case vertical
+}
+
 class AmuseMenuLayout: UICollectionViewLayout {
     var rows:Int = 2                                        //默认行数
     var cols:Int = 4                                        //默认列数
     var totalWidth:CGFloat = 0                              //默认 collectionView contentSize 的总宽度
+    var totalHeight:CGFloat = 0                             //默认 collectionView contentSize 的总高度
     var minimumLineSpacing:CGFloat = 0                      //默认行间距
     var minimumInteritemSpacing:CGFloat = 0                 //默认列间距
     var sectionInset:UIEdgeInsets = UIEdgeInsets.zero       //默认内边距
+    var layoutDirection:DirectionLayout
     lazy var attributes:[UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
+    
+    init(direction:DirectionLayout) {
+        layoutDirection = direction
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
+
 
 extension AmuseMenuLayout {
     override func prepare() {
         super.prepare()
-        
+
+        layoutDirection == .horizontal ? horizontalLayout() : verticalLayout()
+    }
+}
+
+
+// MARK: - 自定义布局
+extension AmuseMenuLayout {
+    //水平方向
+    private func horizontalLayout() {
         guard let collectionView = collectionView else { return }
         
         let width = collectionView.bounds.width
         let height = collectionView.bounds.height
-        
         //计算 item的 size
         let itemW:CGFloat = (width - sectionInset.left - sectionInset.right - CGFloat((cols - 1)) * minimumInteritemSpacing) / CGFloat(cols)
         let itemH:CGFloat = (height - sectionInset.top - sectionInset.bottom - CGFloat(rows - 1) * minimumLineSpacing) / CGFloat(rows)
@@ -64,6 +90,45 @@ extension AmuseMenuLayout {
         
         totalWidth = previousPageOfNums * width
     }
+    
+    //垂直方向
+    private func verticalLayout() {
+        
+        guard let collectionView = collectionView else { return }
+        if cols == 0 { return }
+        
+        let width = collectionView.bounds.width
+//        let height = collectionView.bounds.height
+        
+        //计算 itemSize
+        let itemW = (width - sectionInset.left - sectionInset.right - CGFloat(cols - 1) * minimumInteritemSpacing) / CGFloat(cols)
+       
+        
+        let itemCount = collectionView.numberOfItems(inSection: 0)
+        
+        //根据 cols 初始化一个装有sectionInset.top的数组
+        var indexHight:[CGFloat] = Array(repeating: sectionInset.top, count: cols)
+        
+        for index in 0..<itemCount {
+            let indexPath = IndexPath(item: index, section: 0)
+            let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            let itemH = CGFloat(arc4random_uniform(150) + 80)
+            //获取数组中最小的高度
+            let minHeigth:CGFloat = indexHight.min()!
+            //当前 item 所在的列数
+            let index = indexHight.firstIndex(of: minHeigth)!
+            
+            let itemX = sectionInset.left + (itemW + minimumInteritemSpacing) * CGFloat(index) + sectionInset.right
+            let itemY = minHeigth + minimumLineSpacing
+            
+            attribute.frame = CGRect(x: itemX, y: itemY, width: itemW, height: itemH)
+            attributes.append(attribute)
+            
+            indexHight[index] = attribute.frame.maxY
+        }
+        
+        totalHeight = indexHight.max()! + sectionInset.bottom
+    }
 }
 
 extension AmuseMenuLayout {
@@ -74,6 +139,8 @@ extension AmuseMenuLayout {
 
 extension AmuseMenuLayout {
     override var collectionViewContentSize: CGSize {
-        return CGSize(width: totalWidth, height: 0)
+        return CGSize(width: totalWidth, height: totalHeight)
     }
 }
+
+

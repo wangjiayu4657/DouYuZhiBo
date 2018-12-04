@@ -108,7 +108,7 @@ extension GameViewController {
             //展示全部游戏
             self.collectionView.reloadData()
             
-            //展示常用游戏           
+            //展示常用游戏(取前十个数据)
             self.gameView.groups = Array(self.gameVM.games[0..<10])
             
             //数据请求完成时隐藏加载动画
