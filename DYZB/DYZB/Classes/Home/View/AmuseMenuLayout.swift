@@ -30,7 +30,9 @@ class AmuseMenuLayout: UICollectionViewLayout {
     var layoutDirection:DirectionLayout
     weak var dataSource:AmuseMenuLayoutDataSource?
     lazy var attributes:[UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
-    
+    //根据 cols 初始化一个装有sectionInset.top的数组
+    private lazy var indexHight:[CGFloat] = Array(repeating: sectionInset.top, count: cols)
+
     init(direction:DirectionLayout) {
         layoutDirection = direction
         super.init()
@@ -108,13 +110,10 @@ extension AmuseMenuLayout {
         //计算 itemSize
         let itemW = (width - sectionInset.left - sectionInset.right - CGFloat(cols - 1) * minimumInteritemSpacing) / CGFloat(cols)
        
-        
+        //获取总 items
         let itemCount = collectionView.numberOfItems(inSection: 0)
         
-        //根据 cols 初始化一个装有sectionInset.top的数组
-        var indexHight:[CGFloat] = Array(repeating: sectionInset.top, count: cols)
-        
-        for index in 0..<itemCount {
+        for index in attributes.count..<itemCount {
             let indexPath = IndexPath(item: index, section: 0)
             let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             let itemH:CGFloat = dataSource?.amuseMenuLayout(self, index: index) ?? 100

@@ -12,6 +12,7 @@ private let kNormalCellID = "kNormalCellID"
 
 class NormalRoomViewController: UIViewController {
     
+    private var count = 30
     // MARK: - 懒加载
     private lazy var collectionView:UICollectionView = { [unowned self] in
         let layout = AmuseMenuLayout(direction: DirectionLayout.vertical)
@@ -59,7 +60,7 @@ extension NormalRoomViewController {
 // MARK: - 遵守UICollectionViewDataSource协议
 extension NormalRoomViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,6 +76,13 @@ extension NormalRoomViewController : UICollectionViewDelegate {
         let cellLayer = CAEmitterLayerManager(image: UIImage(named: "home_header_hot")!,layer:view.layer, postion: CGPoint(x: kScreenW - 30, y: kScreenH - 10))
 
         cellLayer.startEmitterCellAnimation()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
+            count += 30
+            collectionView.reloadData()
+        }
     }
 }
 
