@@ -14,7 +14,10 @@ class HomeViewController: UIViewController {
     // MARK: - 懒加载
     private lazy var pageTitleView:PageTitleView = {
         let titles = ["推荐","游戏","娱乐","趣玩"]
-        let titleView = PageTitleView(frame: CGRect(x: 0, y: kNavgationBarH, width: kScreenW, height: 40), titles: titles)
+        var style = JYPageStyle()
+        style.normalColor = UIColor.lightGray
+        style.titleFont = UIFont.italicSystemFont(ofSize: 15)
+        let titleView = PageTitleView(frame: CGRect(x: 0, y: kNavgationBarH, width: kScreenW, height: 40), titles: titles,style:style)
         titleView.delegate = self
         return titleView
     }()

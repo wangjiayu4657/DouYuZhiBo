@@ -20,6 +20,7 @@ class PageTitleView: UIView {
     private var titles:[String]
     private var currentIndex:Int = 0
     private var sliderView:UIView?
+    private var style:JYPageStyle
     weak var delegate:PageTitleViewDelegate?
     
     // MARK: - 懒加载
@@ -32,8 +33,9 @@ class PageTitleView: UIView {
     }()
     
     // MARK: - 自定义构造函数
-    init(frame: CGRect,titles:[String]) {
+    init(frame: CGRect,titles:[String],style:JYPageStyle) {
         self.titles = titles
+        self.style = style
         super.init(frame: frame)
         
         setupUI()
@@ -65,7 +67,7 @@ extension PageTitleView {
     private func createTitleLabel() {
         let titleLbY:CGFloat = 0
         let titleLbW = kScreenW / CGFloat(titles.count)
-        let titleLbH:CGFloat = 40
+        let titleLbH:CGFloat = style.titleHeight
         
         for (index,title) in titles.enumerated() {
             //创建 label
@@ -74,9 +76,9 @@ extension PageTitleView {
             //设置 label 属性
             titleLb.tag = index
             titleLb.text = title
-            titleLb.textColor = UIColor.darkGray
+            titleLb.textColor = index == 0 ? style.selectColor : style.normalColor
             titleLb.textAlignment = .center
-            titleLb.font = UIFont.systemFont(ofSize: 15)
+            titleLb.font = style.titleFont
             
             //设置 labelt 的 frame
             titleLb.frame = CGRect(x: titleLbW * CGFloat(index), y: titleLbY, width: titleLbW, height: titleLbH)
@@ -94,9 +96,9 @@ extension PageTitleView {
     //添加 titleView 底部的滑块
     private func createSliderView() {
         guard let titleLb = titleLbs.first else { return }
-        titleLb.textColor = UIColor.orange
+        titleLb.textColor = style.selectColor
         sliderView = UIView(frame: CGRect(x: titleLb.frame.origin.x, y: kTitleViewH - 2, width: titleLb.frame.width, height: 2))
-        sliderView?.backgroundColor = UIColor.orange
+        sliderView?.backgroundColor = style.bottomLineColor
         titleScrollView.addSubview(sliderView!)
     }
     

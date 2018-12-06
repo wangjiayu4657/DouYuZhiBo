@@ -15,6 +15,8 @@
 		753422CF21A544B00057C227 /* Commond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753422CE21A544B00057C227 /* Commond.swift */; };
 		753422D321A550350057C227 /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753422D221A550350057C227 /* PageContentView.swift */; };
 		753422D521A5548F0057C227 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753422D421A5548F0057C227 /* UIColor+Extension.swift */; };
+		754D441221B8FC2A00D50A39 /* PageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754D441121B8FC2A00D50A39 /* PageCollectionView.swift */; };
+		754D441421B8FCC900D50A39 /* JYPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754D441321B8FCC900D50A39 /* JYPageStyle.swift */; };
 		7556834C219D529B0041E7FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556834B219D529B0041E7FD /* AppDelegate.swift */; };
 		75568353219D529D0041E7FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75568352219D529D0041E7FD /* Assets.xcassets */; };
 		75568356219D529D0041E7FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75568354219D529D0041E7FD /* LaunchScreen.storyboard */; };
@@ -99,6 +101,8 @@
 		753422CE21A544B00057C227 /* Commond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commond.swift; sourceTree = "<group>"; };
 		753422D221A550350057C227 /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
 		753422D421A5548F0057C227 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		754D441121B8FC2A00D50A39 /* PageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionView.swift; sourceTree = "<group>"; };
+		754D441321B8FCC900D50A39 /* JYPageStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYPageStyle.swift; sourceTree = "<group>"; };
 		75568348219D529B0041E7FD /* DYZB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYZB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7556834B219D529B0041E7FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75568352219D529D0041E7FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -265,8 +269,8 @@
 		757A3399219DA1870093E299 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				75F6E94721B3DA5A009D4A40 /* Room */,
 				757A339F219DA1870093E299 /* Main */,
+				75F6E94721B3DA5A009D4A40 /* Room */,
 				757A339A219DA1870093E299 /* Home */,
 				757A339E219DA1870093E299 /* Live */,
 				757A339C219DA1870093E299 /* Follow */,
@@ -352,8 +356,10 @@
 		75C08AE421A52DE400AD45B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				754D441321B8FCC900D50A39 /* JYPageStyle.swift */,
 				75C08B0121A537DD00AD45B5 /* PageTitleView.swift */,
 				753422D221A550350057C227 /* PageContentView.swift */,
+				754D441121B8FC2A00D50A39 /* PageCollectionView.swift */,
 				7559DBB921A7D9C0000894E8 /* CollectionNormalCell.swift */,
 				7559DBBA21A7D9C0000894E8 /* CollectionNormalCell.xib */,
 				7559DBBD21A7DCE1000894E8 /* CollectionPrettyCell.swift */,
@@ -777,6 +783,7 @@
 				75F6E94621B3CB29009D4A40 /* BaseViewController.swift in Sources */,
 				75D946AD21ACED6E008B86B1 /* Date+Extension.swift in Sources */,
 				75F6E94E21B3DB0C009D4A40 /* NormalRoomViewController.swift in Sources */,
+				754D441421B8FCC900D50A39 /* JYPageStyle.swift in Sources */,
 				7515DF6021B28D0900CC95F3 /* AmuseMenuLayout.swift in Sources */,
 				753422D521A5548F0057C227 /* UIColor+Extension.swift in Sources */,
 				7513B83821AD3532007FE1E7 /* CollectionBaseCell.swift in Sources */,
@@ -807,6 +814,7 @@
 				75D946AB21ACE80B008B86B1 /* HttpClient.swift in Sources */,
 				75C08AFD21A52FDC00AD45B5 /* HomeViewController.swift in Sources */,
 				75F6E94421B37BB4009D4A40 /* FunnyViewModel.swift in Sources */,
+				754D441221B8FC2A00D50A39 /* PageCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

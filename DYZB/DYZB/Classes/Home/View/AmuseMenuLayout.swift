@@ -105,7 +105,6 @@ extension AmuseMenuLayout {
         if cols == 0 { return }
         
         let width = collectionView.bounds.width
-//        let height = collectionView.bounds.height
         
         //计算 itemSize
         let itemW = (width - sectionInset.left - sectionInset.right - CGFloat(cols - 1) * minimumInteritemSpacing) / CGFloat(cols)
