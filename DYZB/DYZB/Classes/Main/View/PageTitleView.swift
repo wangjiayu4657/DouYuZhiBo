@@ -120,6 +120,12 @@ extension PageTitleView {
         
         currentLb.textColor = UIColor.orange
         
+        adjustSelectedTitle(currentLb)
+        
+        delegate?.titleView(self, selectedIndex: currentIndex)
+    }
+    
+    private func adjustSelectedTitle(_ currentLb:UILabel) {
         //获取起始时的 titleLb
         let sourceLb = titleLbs[currentIndex]
         sourceLb.textColor = UIColor.darkGray
@@ -131,8 +137,6 @@ extension PageTitleView {
         UIView.animate(withDuration: 0.5) {
             self.sliderView?.center.x = currentLb.center.x
         }
-        
-        delegate?.titleView(self, selectedIndex: currentIndex)
     }
 }
 
@@ -157,5 +161,10 @@ extension PageTitleView {
         
         //重新赋值currentIndex
         currentIndex = targetIndex
+    }
+    
+    func scrollToSelectedIndex(_ index:Int) {
+        let currentLb = titleLbs[index]
+        adjustSelectedTitle(currentLb)
     }
 }

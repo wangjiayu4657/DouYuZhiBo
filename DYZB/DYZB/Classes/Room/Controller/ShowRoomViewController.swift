@@ -13,20 +13,24 @@ private let kPageCollectionCellID = "kPageCollectionCellID"
 class ShowRoomViewController: UIViewController {
     
     // MARK: - 懒加载
-    private lazy var pageCollectionView:PageCollectionView = {
-        let titles = ["热门","高级","豪华","专属"]
+    private lazy var style:JYPageStyle = {
         var style = JYPageStyle()
         style.isTitleInTop = true
         style.normalColor = UIColor(r: 85, g: 85, b: 85)
-        
+        return style
+    }()
+    private lazy var layout:AmuseMenuLayout = {
         let layout = AmuseMenuLayout(direction: DirectionLayout.horizontal)
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.cols = 7
         layout.rows = 3
-
-        let pageCollectionView = PageCollectionView(frame: CGRect(x: 0, y: 200, width: kScreenW, height: 400), titles: titles, style: style,layout:layout)
+        return layout
+    }()
+    private lazy var pageCollectionView:PageCollectionView = { [unowned self] in
+        let titles = ["热门","高级","豪华","专属"]
+        let pageCollectionView = PageCollectionView(frame: CGRect(x: 0, y: 200, width: kScreenW, height: 300), titles: titles, style: style,layout:layout)
         pageCollectionView.pageRegister(cellClass: UICollectionViewCell.self, forCellWithReuseIdentifier: kPageCollectionCellID)
         pageCollectionView.dataSource = self
         return pageCollectionView
@@ -57,7 +61,10 @@ extension ShowRoomViewController : PageCollectionViewDataSource {
     }
     
     func pageCollectionView(_ pageCollectionView: PageCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 18
+        if section == 0 { return 100 }
+        else if section == 1 { return 19 }
+        else if section == 2 { return 37 }
+        else { return 31 }
     }
     
     func pageCollectionView(_ pageCollectionView: PageCollectionView, collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
