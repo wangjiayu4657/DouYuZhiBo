@@ -17,6 +17,7 @@ class ShowRoomViewController: UIViewController {
         let titles = ["热门","高级","豪华","专属"]
         var style = JYPageStyle()
         style.isTitleInTop = true
+        style.normalColor = UIColor(r: 85, g: 85, b: 85)
         
         let layout = AmuseMenuLayout(direction: DirectionLayout.horizontal)
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
@@ -56,7 +57,7 @@ extension ShowRoomViewController : PageCollectionViewDataSource {
     }
     
     func pageCollectionView(_ pageCollectionView: PageCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 33
+        return 18
     }
     
     func pageCollectionView(_ pageCollectionView: PageCollectionView, collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

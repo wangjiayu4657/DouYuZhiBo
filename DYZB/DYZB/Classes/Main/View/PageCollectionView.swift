@@ -55,6 +55,7 @@ extension PageCollectionView {
         let titleViewY = style.isTitleInTop ? 0 : bounds.height - style.titleHeight - style.pageControlHeight
         let titleView = PageTitleView(frame: CGRect(x: 0, y: titleViewY, width: bounds.width, height: style.titleHeight), titles: titles, style: style)
         titleView.backgroundColor = UIColor.randomColor()
+        titleView.delegate = self
         addSubview(titleView)
         
         //collectionView
@@ -104,5 +105,19 @@ extension PageCollectionView : UICollectionViewDataSource {
         cell.backgroundColor = UIColor.randomColor()
         return cell
     }
-    
+}
+
+extension PageCollectionView : PageTitleViewDelegate {
+    func titleView(_ titleView: PageTitleView, selectedIndex: Int) {
+        let indexPath = IndexPath(item: 0, section: selectedIndex)
+        //获取总组数
+        let sections = dataSource?.pageNumberOfSections(self) ?? 0
+        //获取总的 item 个数
+        let items = dataSource?.pageCollectionView(self, numberOfItemsInSection: selectedIndex) ?? 0
+        //滚动到对应的位置
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+        //为了解决最后一组只有一页数据时左边间距偏大的问题
+        if selectedIndex == (sections - 1) && items <= (layout.cols * layout.rows) { return }
+        collectionView.contentOffset.x -= layout.sectionInset.left
+    }
 }

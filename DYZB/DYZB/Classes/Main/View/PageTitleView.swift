@@ -108,7 +108,6 @@ extension PageTitleView {
         bottomLine.backgroundColor = UIColor.lightGray
         addSubview(bottomLine)
     }
-    
 }
 
 // MARK: - 事件监听
