@@ -38,6 +38,10 @@
 		7571296F21B20EE3009B53B2 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296E21B20EE3009B53B2 /* BaseViewModel.swift */; };
 		7571297121B211B6009B53B2 /* BaseAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571297021B211B6009B53B2 /* BaseAnchorViewController.swift */; };
 		758E8B0C21B6647E00C5571A /* CAEmitterLayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */; };
+		75A6868E2264714E00DEAE8D /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6868D2264714E00DEAE8D /* RoomViewController.swift */; };
+		75A686A522648AFB00DEAE8D /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */; };
+		75A686A622648AFB00DEAE8D /* IJKMediaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75A686B122648E1D00DEAE8D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A686B022648E1D00DEAE8D /* libz.tbd */; };
 		75C08AE821A52DFD00AD45B5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AE721A52DFD00AD45B5 /* Home.storyboard */; };
 		75C08AEF21A52EF500AD45B5 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AEE21A52EF500AD45B5 /* Live.storyboard */; };
 		75C08AF421A52EFE00AD45B5 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C08AF321A52EFE00AD45B5 /* Follow.storyboard */; };
@@ -87,6 +91,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		75A686A722648AFB00DEAE8D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				75A686A622648AFB00DEAE8D /* IJKMediaFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		081EE4190568DFCA0772365A /* Pods-DYZB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZB.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYZB/Pods-DYZB.release.xcconfig"; sourceTree = "<group>"; };
 		107705ADB8C67A7A7FC7DC31 /* Pods-DYZBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYZBTests/Pods-DYZBTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +148,9 @@
 		7571296E21B20EE3009B53B2 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		7571297021B211B6009B53B2 /* BaseAnchorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnchorViewController.swift; sourceTree = "<group>"; };
 		758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEmitterLayerManager.swift; sourceTree = "<group>"; };
+		75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		75A6868D2264714E00DEAE8D /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		75A686B022648E1D00DEAE8D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		75C08AE721A52DFD00AD45B5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		75C08AEE21A52EF500AD45B5 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		75C08AF321A52EFE00AD45B5 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
@@ -168,6 +189,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A686B122648E1D00DEAE8D /* libz.tbd in Frameworks */,
+				75A686A522648AFB00DEAE8D /* IJKMediaFramework.framework in Frameworks */,
 				A30514D3722A643A5AA513DF /* Pods_DYZB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +217,8 @@
 		26F1FE88DE2C23082C49B726 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75A686B022648E1D00DEAE8D /* libz.tbd */,
+				75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */,
 				C5AAFE80B52363F2D0F8886A /* Pods_DYZB.framework */,
 				B1CC677750366D04624443F0 /* Pods_DYZBTests.framework */,
 				1250FAC6DB822627222E9AC0 /* Pods_DYZBUITests.framework */,
@@ -532,6 +557,7 @@
 			children = (
 				75F6E94B21B3DB00009D4A40 /* ShowRoomViewController.swift */,
 				75F6E94D21B3DB0C009D4A40 /* NormalRoomViewController.swift */,
+				75A6868D2264714E00DEAE8D /* RoomViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -562,6 +588,7 @@
 				75568345219D529B0041E7FD /* Frameworks */,
 				75568346219D529B0041E7FD /* Resources */,
 				7E2512EA0FE200224899B701 /* [CP] Embed Pods Frameworks */,
+				75A686A722648AFB00DEAE8D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -783,6 +810,7 @@
 				75F6E94621B3CB29009D4A40 /* BaseViewController.swift in Sources */,
 				75D946AD21ACED6E008B86B1 /* Date+Extension.swift in Sources */,
 				75F6E94E21B3DB0C009D4A40 /* NormalRoomViewController.swift in Sources */,
+				75A6868E2264714E00DEAE8D /* RoomViewController.swift in Sources */,
 				754D441421B8FCC900D50A39 /* JYPageStyle.swift in Sources */,
 				7515DF6021B28D0900CC95F3 /* AmuseMenuLayout.swift in Sources */,
 				753422D521A5548F0057C227 /* UIColor+Extension.swift in Sources */,
@@ -985,11 +1013,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4UKBZQ5P63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiju.DYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1006,11 +1042,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4UKBZQ5P63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiju.DYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";

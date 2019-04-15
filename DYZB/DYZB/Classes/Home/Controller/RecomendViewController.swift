@@ -65,7 +65,7 @@ extension RecomendViewController {
         //给 baseViewModel 赋值
         baseVM = recomendVM
         
-        recomendVM.requestData {[weak self] in
+        recomendVM.requestData { [weak self] in
             self?.collectionView.reloadData()
             
             var groups = self?.recomendVM.groups
@@ -87,7 +87,7 @@ extension RecomendViewController {
     }
 }
 
-//// MARK: - 遵守UICollectionViewDataSource协议
+// MARK: - 遵守UICollectionViewDataSource协议
 extension RecomendViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 1 {
@@ -99,6 +99,7 @@ extension RecomendViewController {
         }
     }
 }
+
 // MARK: - 遵守UICollectionViewDelegate协议
 extension RecomendViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

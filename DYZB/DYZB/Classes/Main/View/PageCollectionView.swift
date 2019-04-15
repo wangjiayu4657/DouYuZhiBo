@@ -108,7 +108,7 @@ extension PageCollectionView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let itemCount = dataSource?.pageCollectionView(self, numberOfItemsInSection: section) ?? 0
         //设置 pageControl的numberOfPages
-        let count = (itemCount - 1) / (layout.rows * layout.cols) + 1
+        _ = (itemCount - 1) / (layout.rows * layout.cols) + 1
         if section == 0 {
             pageControl.numberOfPages = (itemCount - 1) / (layout.rows * layout.cols) + 1
         }

@@ -52,7 +52,7 @@ class BaseAnchorViewController: BaseViewController {
 
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kCellHeaderViewID)
         collectionView.backgroundColor = UIColor.white
-        collectionView.delegate = self as? UICollectionViewDelegate 
+        collectionView.delegate = self  
         collectionView.dataSource = self
         collectionView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         return collectionView
@@ -121,7 +121,8 @@ extension BaseAnchorViewController : UICollectionViewDelegate {
     }
     
     private func normalRoomVC() {
-        let normalRoomVC = NormalRoomViewController()
+//        let normalRoomVC = NormalRoomViewController()
+        let normalRoomVC = RoomViewController()
         navigationController?.pushViewController(normalRoomVC, animated: true)
     }
 }

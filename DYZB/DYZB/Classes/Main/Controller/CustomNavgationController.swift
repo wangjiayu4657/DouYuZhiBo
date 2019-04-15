@@ -32,6 +32,7 @@ class CustomNavgationController: UINavigationController {
 //
         //获取_targets对应是数组
         guard let targets = popGes.value(forKey: "_targets") as? [AnyObject] else { return }
+//        print(targets)
         //获取 popGes 手势中的 target
         guard let target = targets.first?.value(forKey: "target") else { return }
         //创建 popGes 手势中执行的 Selector
