@@ -36,6 +36,12 @@ class RoomViewController: UIViewController {
             player.prepareToPlay()
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        player.pause()
+        player.stop()
+    }
 }
 
 
@@ -43,12 +49,12 @@ extension RoomViewController {
     private func setupUI() {
         
         //在线视频播放
-        guard let url = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4") else { return }
-        guard let player = IJKAVMoviePlayerController(contentURL: url) else { return }
+//        guard let url = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4") else { return }
+//        guard let player = IJKAVMoviePlayerController(contentURL: url) else { return }
         
         //直播视频
-//        gaurd let url = URL(string: "http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8") else { return }
-//        guard let player = IJKFFMoviePlayerController(contentURL: url, with: IJKFFOptions.byDefault()) else { return }
+        guard let url = URL(string: "http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8") else { return }
+        guard let player = IJKFFMoviePlayerController(contentURL: url, with: IJKFFOptions.byDefault()) else { return }
         
         guard let playerView = player.view else { return }
         self.player = player
