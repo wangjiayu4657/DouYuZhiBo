@@ -12,7 +12,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // MARK: - 懒加载
-    private lazy var pageTitleView:PageTitleView = {
+    private lazy var pageTitleView:PageTitleView = { [weak self] in
         let titles = ["推荐","游戏","娱乐","趣玩"]
         var style = JYPageStyle()
         style.normalColor = UIColor.lightGray
@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
         titleView.delegate = self
         return titleView
     }()
+    
     private lazy var pageContentView:PageContentView = { [weak self] in 
         let contentViewY = kNavgationBarH + kTitleViewH
         let contentViewH = kScreenH - contentViewY

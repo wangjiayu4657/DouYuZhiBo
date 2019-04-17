@@ -12,7 +12,12 @@ import UIKit
 class RoomViewController: UIViewController {
 
     // MARK: - 懒加载
-    private lazy var playerTool:DeviceTool = DeviceTool()
+    private lazy var playerTool:DeviceTool = {
+        let playerTool = DeviceTool()
+        if let previewLayer = playerTool.initializeDevice() { view.layer.insertSublayer(previewLayer, at: 1) }
+        return playerTool
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +30,8 @@ class RoomViewController: UIViewController {
 // MARK: - 设置UI界面
 extension RoomViewController {
     private func setupUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "切换摄像头", style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightItemClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "切换摄像头", style: .plain, target: self, action: #selector(rightItemClick))
         
-        initializePlayerTool()
-    }
-    
-    private func initializePlayerTool() {
-        guard let playerView = playerTool.initializeDevice() else { return }
-        view.layer.insertSublayer(playerView, at: 1)
         playerTool.startRunning()
     }
 }

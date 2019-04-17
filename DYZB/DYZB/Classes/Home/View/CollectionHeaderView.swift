@@ -8,7 +8,10 @@
 
 import UIKit
 
-class CollectionHeaderView: UICollectionReusableView {
+class CollectionHeaderView: UICollectionReusableView,Reuseable {
+    
+    //给协议中的nib 属性赋值
+    static var nib:UINib? { return UINib(nibName: "\(self)", bundle: nil)}
 
     // MARK: - 控件属性
     

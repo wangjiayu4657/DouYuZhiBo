@@ -8,7 +8,10 @@
 
 import UIKit
 
-class CollectionBaseCell: UICollectionViewCell {
+class CollectionBaseCell: UICollectionViewCell,Reuseable {
+    
+    static var nib:UINib? { return UINib(nibName: "\(self)", bundle: nil) }
+    
     // MARK: - 控件
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var nickNameLb: UILabel!

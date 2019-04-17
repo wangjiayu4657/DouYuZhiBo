@@ -40,6 +40,7 @@
 		757F486C226574C7001570A2 /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F486B226574C7001570A2 /* DeviceTool.swift */; };
 		757F486E2265E1BD001570A2 /* PlayVedioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F486D2265E1BD001570A2 /* PlayVedioViewController.swift */; };
 		757F48702266BDED001570A2 /* Httpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F486F2266BDED001570A2 /* Httpable.swift */; };
+		757F48732266D6FE001570A2 /* Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F48722266D6FE001570A2 /* Reuseable.swift */; };
 		758E8B0C21B6647E00C5571A /* CAEmitterLayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */; };
 		75A6868E2264714E00DEAE8D /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6868D2264714E00DEAE8D /* RoomViewController.swift */; };
 		75A686A522648AFB00DEAE8D /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */; };
@@ -153,6 +154,7 @@
 		757F486B226574C7001570A2 /* DeviceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTool.swift; sourceTree = "<group>"; };
 		757F486D2265E1BD001570A2 /* PlayVedioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVedioViewController.swift; sourceTree = "<group>"; };
 		757F486F2266BDED001570A2 /* Httpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Httpable.swift; sourceTree = "<group>"; };
+		757F48722266D6FE001570A2 /* Reuseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reuseable.swift; sourceTree = "<group>"; };
 		758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEmitterLayerManager.swift; sourceTree = "<group>"; };
 		75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		75A6868D2264714E00DEAE8D /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				757A339C219DA1870093E299 /* Follow */,
 				757A339D219DA1870093E299 /* Profile */,
 				757A339B219DA1870093E299 /* Tools */,
+				757F48712266D6CA001570A2 /* ProtocalTools */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -330,7 +333,6 @@
 				758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */,
 				753422CE21A544B00057C227 /* Commond.swift */,
 				75D946AA21ACE80B008B86B1 /* HttpClient.swift */,
-				757F486F2266BDED001570A2 /* Httpable.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -374,6 +376,15 @@
 				75C08AE521A52DE400AD45B5 /* Controller */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		757F48712266D6CA001570A2 /* ProtocalTools */ = {
+			isa = PBXGroup;
+			children = (
+				757F486F2266BDED001570A2 /* Httpable.swift */,
+				757F48722266D6FE001570A2 /* Reuseable.swift */,
+			);
+			path = ProtocalTools;
 			sourceTree = "<group>";
 		};
 		75C08AE321A52DE400AD45B5 /* Model */ = {
@@ -852,6 +863,7 @@
 				75D946B121ACEFD2008B86B1 /* RecomendViewModel.swift in Sources */,
 				75D946B321ACF18B008B86B1 /* AnchorGroup.swift in Sources */,
 				75D946AB21ACE80B008B86B1 /* HttpClient.swift in Sources */,
+				757F48732266D6FE001570A2 /* Reuseable.swift in Sources */,
 				75C08AFD21A52FDC00AD45B5 /* HomeViewController.swift in Sources */,
 				75F6E94421B37BB4009D4A40 /* FunnyViewModel.swift in Sources */,
 				754D441221B8FC2A00D50A39 /* PageCollectionView.swift in Sources */,

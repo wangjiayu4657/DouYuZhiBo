@@ -91,7 +91,9 @@ extension RecomendViewController {
 extension RecomendViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 1 {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
+//           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
+            //利用面向协议从缓存池中取 cell
+            let cell = collectionView.dequeueReusableCell(indexPath: indexPath) as CollectionPrettyCell
             cell.anchor = recomendVM.groups[indexPath.section].anchors[indexPath.item]
             return cell
         }else {

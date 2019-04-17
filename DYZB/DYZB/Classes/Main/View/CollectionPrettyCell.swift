@@ -9,9 +9,7 @@
 import UIKit
 import Kingfisher
 
-class CollectionPrettyCell: CollectionBaseCell {
-
-
+class CollectionPrettyCell: CollectionBaseCell {    
     @IBOutlet weak var cityBtn: UIButton!
     
     override var anchor:AnchorModel? {
