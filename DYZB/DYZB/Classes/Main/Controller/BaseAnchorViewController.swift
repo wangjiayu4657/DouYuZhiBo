@@ -56,7 +56,6 @@ class BaseAnchorViewController: BaseViewController {
         collectionView.register(CollectionPrettyCell.self)
         collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader)
         
-        
         collectionView.backgroundColor = UIColor.white
         collectionView.delegate = self  
         collectionView.dataSource = self

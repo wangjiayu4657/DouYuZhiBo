@@ -13,6 +13,8 @@ class DeviceTool: NSObject {
     var currentVideoDeviceInput:AVCaptureDeviceInput!
     var videoConnection:AVCaptureConnection!
     var session:AVCaptureSession!
+    
+    var previewLayer:AVCaptureVideoPreviewLayer?
 }
 
 
@@ -61,6 +63,7 @@ extension DeviceTool {
         let playerView = AVCaptureVideoPreviewLayer(session: session)
         playerView.frame = UIScreen.main.bounds
         
+        previewLayer = playerView
         return playerView
     }
     
