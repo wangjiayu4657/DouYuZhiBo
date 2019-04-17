@@ -107,12 +107,24 @@ extension GameViewController {
         gameVM.gameRequest {
             //展示全部游戏
             self.collectionView.reloadData()
-            
+
             //展示常用游戏(取前十个数据)
             self.gameView.groups = Array(self.gameVM.games[0..<10])
-            
+
             //数据请求完成时隐藏加载动画
             self.loadDataFinished()
         }
+        
+        //面向协议请求
+//        gameVM.request {
+//            //展示全部游戏
+//            self.collectionView.reloadData()
+//
+//            //展示常用游戏(取前十个数据)
+//            self.gameView.groups = Array(self.gameVM.results[0..<10])
+//
+//            //数据请求完成时隐藏加载动画
+//            self.loadDataFinished()
+//        }
     }
 }
