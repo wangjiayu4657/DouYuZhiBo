@@ -37,6 +37,8 @@
 		7571296D21B136C4009B53B2 /* AmuseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296C21B136C4009B53B2 /* AmuseViewModel.swift */; };
 		7571296F21B20EE3009B53B2 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571296E21B20EE3009B53B2 /* BaseViewModel.swift */; };
 		7571297121B211B6009B53B2 /* BaseAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571297021B211B6009B53B2 /* BaseAnchorViewController.swift */; };
+		757F486C226574C7001570A2 /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F486B226574C7001570A2 /* DeviceTool.swift */; };
+		757F486E2265E1BD001570A2 /* PlayVedioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F486D2265E1BD001570A2 /* PlayVedioViewController.swift */; };
 		758E8B0C21B6647E00C5571A /* CAEmitterLayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */; };
 		75A6868E2264714E00DEAE8D /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6868D2264714E00DEAE8D /* RoomViewController.swift */; };
 		75A686A522648AFB00DEAE8D /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */; };
@@ -147,6 +149,8 @@
 		7571296C21B136C4009B53B2 /* AmuseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseViewModel.swift; sourceTree = "<group>"; };
 		7571296E21B20EE3009B53B2 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		7571297021B211B6009B53B2 /* BaseAnchorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnchorViewController.swift; sourceTree = "<group>"; };
+		757F486B226574C7001570A2 /* DeviceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTool.swift; sourceTree = "<group>"; };
+		757F486D2265E1BD001570A2 /* PlayVedioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVedioViewController.swift; sourceTree = "<group>"; };
 		758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEmitterLayerManager.swift; sourceTree = "<group>"; };
 		75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		75A6868D2264714E00DEAE8D /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				75C08AFE21A531DE00AD45B5 /* Extension */,
+				757F486B226574C7001570A2 /* DeviceTool.swift */,
 				758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */,
 				753422CE21A544B00057C227 /* Commond.swift */,
 				75D946AA21ACE80B008B86B1 /* HttpClient.swift */,
@@ -558,6 +563,7 @@
 				75F6E94B21B3DB00009D4A40 /* ShowRoomViewController.swift */,
 				75F6E94D21B3DB0C009D4A40 /* NormalRoomViewController.swift */,
 				75A6868D2264714E00DEAE8D /* RoomViewController.swift */,
+				757F486D2265E1BD001570A2 /* PlayVedioViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -805,6 +811,7 @@
 				7571296721B110AD009B53B2 /* GameModel.swift in Sources */,
 				7559DBB721A7D41E000894E8 /* CollectionHeaderView.swift in Sources */,
 				7571296D21B136C4009B53B2 /* AmuseViewModel.swift in Sources */,
+				757F486E2265E1BD001570A2 /* PlayVedioViewController.swift in Sources */,
 				758E8B0C21B6647E00C5571A /* CAEmitterLayerManager.swift in Sources */,
 				75C08B0221A537DD00AD45B5 /* PageTitleView.swift in Sources */,
 				75F6E94621B3CB29009D4A40 /* BaseViewController.swift in Sources */,
@@ -837,6 +844,7 @@
 				753422CF21A544B00057C227 /* Commond.swift in Sources */,
 				7571296F21B20EE3009B53B2 /* BaseViewModel.swift in Sources */,
 				75C08B0021A5320E00AD45B5 /* UIBarButtonItem+Extension.swift in Sources */,
+				757F486C226574C7001570A2 /* DeviceTool.swift in Sources */,
 				75D946B121ACEFD2008B86B1 /* RecomendViewModel.swift in Sources */,
 				75D946B321ACF18B008B86B1 /* AnchorGroup.swift in Sources */,
 				75D946AB21ACE80B008B86B1 /* HttpClient.swift in Sources */,
