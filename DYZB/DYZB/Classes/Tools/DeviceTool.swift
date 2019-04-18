@@ -17,7 +17,7 @@ class DeviceTool: NSObject {
     var previewLayer:AVCaptureVideoPreviewLayer?
 }
 
-
+// MARK: - 初始化
 extension DeviceTool {
      func initializeDevice() -> AVCaptureVideoPreviewLayer? {
         //1.创建会话
@@ -101,12 +101,13 @@ extension DeviceTool {
     }
 }
 
+// MARK: - 遵守AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate代理协议
 extension DeviceTool : AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if videoConnection == connection {
-            print("video:\(sampleBuffer)")
+//            print("video:\(sampleBuffer)")
         }else {
-            print("audio:\(sampleBuffer)")
+//            print("audio:\(sampleBuffer)")
         }
     }
 }

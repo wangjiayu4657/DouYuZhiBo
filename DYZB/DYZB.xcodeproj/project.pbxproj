@@ -41,6 +41,7 @@
 		757F486E2265E1BD001570A2 /* PlayVedioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F486D2265E1BD001570A2 /* PlayVedioViewController.swift */; };
 		757F48702266BDED001570A2 /* Httpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F486F2266BDED001570A2 /* Httpable.swift */; };
 		757F48732266D6FE001570A2 /* Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F48722266D6FE001570A2 /* Reuseable.swift */; };
+		757F48752267299E001570A2 /* FocusCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F48742267299E001570A2 /* FocusCursorView.swift */; };
 		758E8B0C21B6647E00C5571A /* CAEmitterLayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */; };
 		75A6868E2264714E00DEAE8D /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6868D2264714E00DEAE8D /* RoomViewController.swift */; };
 		75A686A522648AFB00DEAE8D /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */; };
@@ -155,6 +156,7 @@
 		757F486D2265E1BD001570A2 /* PlayVedioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVedioViewController.swift; sourceTree = "<group>"; };
 		757F486F2266BDED001570A2 /* Httpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Httpable.swift; sourceTree = "<group>"; };
 		757F48722266D6FE001570A2 /* Reuseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reuseable.swift; sourceTree = "<group>"; };
+		757F48742267299E001570A2 /* FocusCursorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCursorView.swift; sourceTree = "<group>"; };
 		758E8B0B21B6647E00C5571A /* CAEmitterLayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEmitterLayerManager.swift; sourceTree = "<group>"; };
 		75A6868922646F8E00DEAE8D /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		75A6868D2264714E00DEAE8D /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 		75F6E94A21B3DA5A009D4A40 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				757F48742267299E001570A2 /* FocusCursorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 				7571296721B110AD009B53B2 /* GameModel.swift in Sources */,
 				7559DBB721A7D41E000894E8 /* CollectionHeaderView.swift in Sources */,
 				757F48702266BDED001570A2 /* Httpable.swift in Sources */,
+				757F48752267299E001570A2 /* FocusCursorView.swift in Sources */,
 				7571296D21B136C4009B53B2 /* AmuseViewModel.swift in Sources */,
 				757F486E2265E1BD001570A2 /* PlayVedioViewController.swift in Sources */,
 				758E8B0C21B6647E00C5571A /* CAEmitterLayerManager.swift in Sources */,
